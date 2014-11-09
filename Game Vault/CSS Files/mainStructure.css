@@ -2,7 +2,6 @@
 		width: 950px;
 		margin: 0 auto;
 		background: yellow;
-
 }
 
 #header{
@@ -31,25 +30,6 @@
 	margin: 10px;
 }
 
-#navbar{
-
-	width:950px;
-	height: 40px;
-	float:left;
-	border-bottom: 1px solid #c7c7c7;
-	background-color: green;
-}
-#navbar ul{
-
-	margin: 0;
-	padding: 0;
-	list-style-type: none;
-}
-#navbar ul li{
-	padding-top:10px;
-	padding-left: 80px;
-	float: left;
-}
 #content_area{
 		
 }
