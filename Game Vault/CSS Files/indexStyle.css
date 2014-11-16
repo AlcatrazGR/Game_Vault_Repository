@@ -5,3 +5,14 @@
 	width: 100px;
 	height: 100px;
 }
+
+#cssmenu span{
+	color: orange;
+	font-size: 15px;
+}
+
+#cssmenu li span:hover{
+	/*Sets the shadow of the text on the links*/	
+	text-shadow: -1px 1px 8px #ffc, 1px -1px 8px white;
+}
+
