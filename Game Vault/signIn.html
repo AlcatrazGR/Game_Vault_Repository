@@ -29,7 +29,7 @@
 			<!--Menu Part-->
 			<div id="cssmenu"> 
 				<ul>
-					<li> <a href='#'> <span> Home </span> </a> </li>
+					<li> <a href='index.html'> <span> Home </span> </a> </li>
 					<li class='active has-sub'> <a href='#'> <span> PC </span> </a> </li>
 					<li> <a href='#'> <span> XBOX One </span> </a> </li>
 					<li> <a href='#'> <span> PS4 </span> </a> </li>
@@ -58,29 +58,51 @@
 						</ul>
 					</li>
 					<li> <a href='#'> <span> News </span> </a> </li>
-					<li> <a href='signIn.html'> <span> Sign In </span> </a> </li>
+					<li> <a href='#'> <span> Sign In </span> </a> </li>
 				</ul>		
 			</div>
 
-			<!--Conent Area with the main and the right column-->
+			<!--Conent Area with the main part-->
 			<div id="content_area">
-				<div id="main_content"></div>
-				<div id="right_col">
-					<div id="login">
-						<form action="" method="post">
-							<b>Unlock the Vault</b>
-							<br>
-							Username:&nbsp;<input type="text" name="username"><br><br>
-							Password:&nbsp;<input type="text" name="password"><br><br>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="submit" value="Log In" />
-						</form>
-
-					</div>
-
+				<div id="main_content">
+					<form action="" method="post">
+						<h3> Account Creation </h3>
+						User Name :&nbsp; <input type="text" name="username" /> <br /> <br />
+						Password : &nbsp; <input type="password" name="password" /> <br /> <br />
+						Re Type Password : &nbsp; <input type="password" name="repassword" /> <br /> <br />
+						Email : &nbsp; <input type="text" name="email" /> &nbsp; @ &nbsp; 
+							<select name="emailService">
+								<option value="hotmail"> hotmail.com </option>
+								<option value="hotmailGR"> hotmail.gr </option>
+								<option value="gmail"> gmail.com </option>
+								<option value="gmailGR"> gmail.gr </option>
+								<option value="outlook"> outlook.com </option>
+								<option value="outlookGR"> outlook.gr </option>
+								<option value="yahoo"> yahoo.com </option>
+								<option value="yahooGR"> yahoo.gr </option>
+							</select> <br /> <br />
+						Male : <input type="radio" name="sex" />&nbsp;&nbsp;&nbsp; Female : <input type="radio" name="sex" /> 	
+						<br /> <br />
+						Birth Date : <br /> 
+							<input type="number" name="date" value="Date" min="1" max="31" />&nbsp;
+							<select name="month">
+								<option value="jan"> January </option>
+								<option value="feb"> February </option>
+								<option value="mar"> March </option>
+								<option value="april"> April </option>
+								<option value="may"> May </option>
+								<option value="jun"> June </option>
+								<option value="jul"> July </option>
+								<option value="aug"> August </option>
+								<option value="sep"> September </option>
+								<option value="oct"> October </option>
+								<option value="nov"> November </option>
+								<option value="dec"> December </option>
+							</select> &nbsp;
+							<input type="text" name="year" value="Year" />
+							<br /> <br />
+						<input type="submit" value="Submit" />
+					</form>
 				</div>
 			</div>
 			
