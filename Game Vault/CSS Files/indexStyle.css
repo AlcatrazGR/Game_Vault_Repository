@@ -16,18 +16,8 @@
 	text-shadow: -1px 1px 8px #ffc, 1px -1px 8px white;
 }
 
-#main_content {
-	width: 625px;
-    height: 100%;
-    background-color: black;
-    border: 1px solid black;
-    opacity: 0.9;
-	position: relative;
-	z-index: -1;
-	
-}
 
-#main_content p{
+#main_content {
 	color: white;
 	font-size: 17px;	
 }
