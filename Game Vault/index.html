@@ -61,6 +61,99 @@
 					<li> <a href='signIn.html'> <span> Sign In </span> </a> </li>
 				</ul>		
 			</div>
+			
+			<!-- Slide show area start-->
+			<div id="slideShow">
+				<!-- all the slide show is basically a unsorted list list-->
+				<ul class="slides">
+					<!--Every slide is consisted of an image and radio button-->
+					
+					<!--1st Image-->
+					<input type="radio" name="radio-btn" id="img-1" checked />
+					<li class="slide-container">
+						<div class="slide">
+							<img src="http://wallpapers55.com/wp-content/uploads/2013/07/WoW-Arthas-Wallpapers-HD.jpg" />
+						</div>
+						<div class="nav">
+							<!-- The &#x2039 special character means a single left-pointing angle (the pointer on the slides) -->
+							<label for="img-6" class="prev"> &#x2039; </label>
+							<label for="img-2" class="next"> &#x203a; </label>
+						</div>
+					</li>
+					
+					<!--2nd Image-->
+					<input type="radio" name="radio-btn" id="img-2" />
+					<li class="slide-container">
+						<div class="slide">
+							<img src="http://images7.alphacoders.com/324/324431.png" />
+						</div>
+						<div class="nav">
+							<label for="img-1" class="prev">&#x2039;</label>
+							<label for="img-3" class="next">&#x203a;</label>
+						</div>
+					</li>
+
+					<!--3rd Image-->
+					<input type="radio" name="radio-btn" id="img-3" />
+					<li class="slide-container">
+						<div class="slide">
+							<img src="http://www.hdwallpapers.in/walls/battlefield_4_china_rising-wide.jpg" />
+						</div>
+						<div class="nav">
+							<label for="img-2" class="prev">&#x2039;</label>
+							<label for="img-4" class="next">&#x203a;</label>
+						</div>
+					</li>
+
+					<!--4th Image-->
+					<input type="radio" name="radio-btn" id="img-4" />
+					<li class="slide-container">
+						<div class="slide">
+							<img src="http://www.photolazy.com/wp-content/uploads/2014/03/crysis-3-bow-hd-wallpaper-1920x1080px-crysis-3-wallpaper-hd-games-photo-crysis-3-wallpaper.jpg" />
+						</div>
+						<div class="nav">
+							<label for="img-3" class="prev">&#x2039;</label>
+							<label for="img-5" class="next">&#x203a;</label>
+						</div>
+					</li>
+
+					<!--5th Image-->
+					<input type="radio" name="radio-btn" id="img-5" />
+					<li class="slide-container">
+						<div class="slide">
+							<img src="http://i57.tinypic.com/30x8wus.jpg" />
+						</div>
+						<div class="nav">
+							<label for="img-4" class="prev">&#x2039;</label>
+							<label for="img-6" class="next">&#x203a;</label>
+						</div>
+					</li>
+
+					<!--6th Image-->
+					<input type="radio" name="radio-btn" id="img-6" />
+					<li class="slide-container">
+						<div class="slide">
+							<img src="http://www.wallpaperseries.com/files/wallpapers-1002/World-of-Warcraft-Warlords-of-Draenor-HD-Wallpaper-3306.jpg" />
+						</div>
+						<div class="nav">
+							<label for="img-5" class="prev">&#x2039;</label>
+							<label for="img-1" class="next">&#x203a;</label>
+						</div>
+					</li>
+
+					<!--List Index for all the dots at the slide show-->
+					<li class="nav-dots">
+						<!--The label tag defines the a label for an input type object-->
+						<!--The for attribute of a label tag specifies which element a label tag is bound to-->
+						<label for="img-1" class="nav-dot" id="img-dot-1"></label>
+						<label for="img-2" class="nav-dot" id="img-dot-2"></label>
+						<label for="img-3" class="nav-dot" id="img-dot-3"></label>
+						<label for="img-4" class="nav-dot" id="img-dot-4"></label>
+						<label for="img-5" class="nav-dot" id="img-dot-5"></label>
+						<label for="img-6" class="nav-dot" id="img-dot-6"></label>
+					</li>
+				</ul>
+			</div> <!-- Slide Show End -->
 
 			<!--Conent Area with the main and the right column-->
 			<div id="content_area">
