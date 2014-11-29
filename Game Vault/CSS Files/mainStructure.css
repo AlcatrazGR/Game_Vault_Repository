@@ -66,20 +66,18 @@
 }
 
 #login{
-	 width:302px;
-	 padding: 10px 10px;
+	 width:262px;
+	 padding: 10px 30px;
 	 margin-top:10px;
-	 margin-left:0px;
 	 border-bottom: 2px solid;
-	 background: blue;
 	 
 }
 
 #favorites{
-	background: blue;
-	margin-top:40px;
-	width:322px;
-	height:455px;
+	padding: 10px 30px;
+	background-color: #181818; 
+	width:263px;
+	height:475px;
 }
 
 
