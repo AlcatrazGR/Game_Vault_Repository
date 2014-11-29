@@ -1,7 +1,7 @@
 #container{
 		width: 950px;
 		margin: 0 auto;
-		background: yellow;
+		
 }
 
 #header{
@@ -53,7 +53,7 @@
 	float: left;
 	width: 323px;
 	height: 100%;
-	background-color: red;
+	background-color: #333;
 	
 }
 
@@ -66,12 +66,20 @@
 }
 
 #login{
-	 border: 2px solid;
-	 border-radius: 25px;
-	 width:250px;
+	 width:302px;
 	 padding: 10px 10px;
 	 margin-top:10px;
-	 margin-left:20px;
+	 margin-left:0px;
+	 border-bottom: 2px solid;
+	 background: blue;
+	 
+}
+
+#favorites{
+	background: blue;
+	margin-top:40px;
+	width:322px;
+	height:455px;
 }
 
 

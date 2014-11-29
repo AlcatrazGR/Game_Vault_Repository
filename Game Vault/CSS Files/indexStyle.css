@@ -1,3 +1,7 @@
+#body{
+	font-family: Verdana, serif;
+}
+
 #bannerImg{
 	margin-bottom:160px;
 }
@@ -19,6 +23,10 @@
 #main_content {
 	color: white;
 	font-size: 17px;	
+}
+
+#login {
+	color: darkorange;
 }
 
 /* Slide Show CSS Region*/
