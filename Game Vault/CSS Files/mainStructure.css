@@ -1,7 +1,6 @@
 #container{
 		width: 950px;
-		margin: 0 auto;
-		
+		margin: 0 auto;		
 }
 
 #header{
@@ -56,13 +55,10 @@
 	background-color: #333;
 	
 }
-
-#footer{
-	background-color: #333;
-	border-top: 1px solid #c7c7c7;
-	width:950px;
-	float:left;
-
+#rightColWrapper{
+	height: 100%;
+	width:323px;
+	background-color: #181818;
 }
 
 #login{
@@ -70,14 +66,20 @@
 	 padding: 10px 30px;
 	 margin-top:10px;
 	 border-bottom: 2px solid;
-	 
+	 background-color: #333 !important;
 }
 
 #favorites{
 	padding: 10px 30px;
-	background-color: #181818; 
 	width:263px;
-	height:475px;
+}
+
+#footer{
+	background-color: #333;
+	border-top: 1px solid #c7c7c7;
+	width:950px;
+	float:left;
+	height: 25px;
 }
 
 
