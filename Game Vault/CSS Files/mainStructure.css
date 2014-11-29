@@ -1,6 +1,7 @@
 #container{
 		width: 950px;
-		margin: 0 auto;		
+		margin: 0 auto;	
+	
 }
 
 #header{
@@ -32,10 +33,6 @@
 	background-color: black;
 }
 
-#content_area{
-		
-}
-
 #main_content{
 	float:left;
 	width: 625px;
@@ -43,7 +40,7 @@
 
     background-color: black;
     border: 1px solid black;
-    opacity: 0.9;
+    opacity: 0.85;
 	position: relative;
 	z-index: -1;
 }
