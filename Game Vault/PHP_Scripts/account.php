@@ -8,16 +8,28 @@
 	class account{
 		
 		//Gets all the accounts from the database and returns
-		//an array of string back to the caller.
+		//an array of arrays back to the caller.
 		public function getAccountFromDAO(){
 			$query = "SELECT * FROM accounts";
 			$result = mysql_query($query);
 			
-			$i=0;
+			$n=0;
+			$accountArray = array();
+			$signleAccountArray = array();
 			while($account = mysql_fetch_array($result)){
-				$accountArray[$i] = $account['ACCOUNT_TYPE']."  ".$account['USERNAME']."  ".$account['PASSWORD']." ".$account['EMAIL']." ".$account['SEX']." ".$account['BIRTH_DATE']; 	
-				$i++;
+				$i=0;
+				$signleAccountArray[$i] = $account['ACCOUNT_TYPE'];
+				$signleAccountArray[$i+1] = $account['USERNAME'];
+				$signleAccountArray[$i+2] = $account['PASSWORD'];
+				$signleAccountArray[$i+3] = $account['EMAIL'];
+				$signleAccountArray[$i+4] = $account['SEX'];
+				$signleAccountArray[$i+5] = $account['BIRTH_DATE'];
+				$signleAccountArray[$i+6] = $account['USER_PHOTO'];
+				
+				$accountArray[$n] = $signleAccountArray;
+				$n++;
 			}
+
 			return $accountArray;
 		}
 		

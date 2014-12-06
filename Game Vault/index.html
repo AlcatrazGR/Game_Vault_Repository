@@ -172,16 +172,16 @@
 				<div id="right_col">
 					<div id="rightColWrapper">
 					<div id="login">
-						<form action="" method="post">
+						<form action="PHP_Scripts/logIn.php" method="POST" enctype="multipart/form-data">
 							<b>Unlock the Vault</b> <br />
 							<br>
 							Username:&nbsp;<input type="text" name="username"><br><br>
-							Password:&nbsp;&nbsp;<input type="text" name="password"><br><br>
+							Password:&nbsp;&nbsp;<input type="password" name="password"><br><br>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="submit" value="Log In" />
+							<input type="submit" value="Log In" name="submit"/>
 						</form>
 
 					</div>
