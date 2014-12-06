@@ -2,7 +2,7 @@
 	<head>
 		<title> Game Vault </title>
 		<meta charset='UTF-8'>
-		
+
 		<!--Meta Descriptions-->
 		<meta name="keywords" content="Games, Gaming, Game Reviews, Reviews, Game Platforms,
 		Game Trailers">
@@ -58,7 +58,7 @@
 						</ul>
 					</li>
 					<li> <a href='#'> <span> News </span> </a> </li>
-					<li> <a href='#'> <span> Sign In </span> </a> </li>
+					<li> <a href='signIn.html'> <span> Sign In </span> </a> </li>
 				</ul>		
 			</div>
 
@@ -67,6 +67,7 @@
 				<div id="main_content">
 					
 					<form action="PHP_Scripts/submit.php" method="post">
+
 						<h3> Account Creation </h3>
 						User Name :&nbsp; <input type="text" name="username" /> <br /> <br />
 						Password : &nbsp; <input type="password" name="password" /> <br /> <br />
@@ -103,7 +104,15 @@
 							<input type="text" name="year" value="Year" />
 							<br /> <br />
 						<input type="file" name="ImageToUpload" />
+						
 						<br /> <br />
+						
+						<!-- Div for the captcha field -->
+						<div class="g-recaptcha" data-sitekey="6LcM6f4SAAAAAGeG6uOuDuncC-CoEtF8OUYw_cmx">
+							<script type="text/javascript" src="http://api.recaptcha.net/challenge?k=6LcM6f4SAAAAAGeG6uOuDuncC-CoEtF8OUYw_cmx"></script>
+						</div>
+						<br />
+						
 						<input type="submit" value="Submit" name="submit" />
 					</form>
 				</div>
