@@ -1,7 +1,11 @@
 <?php
 	
+	//Array with all the names of the components that must be filled
+	//in the form
 	$requiredFields = array('username', 'password', 'repassword', 'emailService', 'sex', 'date', 'month', 'year', 'ImageToUpload');
-		
+	
+	//sets an error flag and passes all the above array checking if
+	//any of the fields are empty.
 	$error = false;
 	foreach($requiredFields as $field) {
 		if (empty($_POST[$field])) {
@@ -10,7 +14,7 @@
 	}	
 	
 	if($error){
-		echo "You must first fill all the form fields";
+		echo "<h2> You must first fill all the form fields </h2>";
 	}
 	else{
 		$username = $_POST['username'];
@@ -26,7 +30,8 @@
 		$date = $_POST['date'];
 		$month = $_POST['month'];
 		$year = $_POST['year'];
-		$bdate = $date."-".$month."-".$year;
+		$time = $date.".".$month.".".$year;
+		$bdate = date("jS F, Y", strtotime($time));
 		
 		$userImage = $_POST['ImageToUpload'];
 		
