@@ -33,6 +33,30 @@
 			return $accountArray;
 		}
 		
+		//Function that checks the integrity of the given data.
+		public function newAccountDataIntegrityCheck($newAccountObj){
+			$errorMessage="";
+			
+			//Checks if the fields contain <space> 
+			if(strpos($newAccountObj[0], " ") !== false){
+				$errorMessage .= "The username you have given contains invalid characters! <br />";
+			}
+			if(strpos($newAccountObj[1], " ") !== false){
+				$errorMessage .= "The password you have given contains invalid characters! <br />";
+			}
+			if(strpos($newAccountObj[3], " ") !== false){
+				$errorMessage .= "The Domain of your EMAIL contains invalid characters! <br />";
+			}
+			
+			//Checks if the password and retyped password are the same
+			if($newAccountObj[1] != $newAccountObj[2]){
+				$errorMessage .= "Password and Re-typed Password mismatch! <br />";
+			}
+			
+			return $errorMessage;
+		}
+		
+		
 	}
 	
 ?>

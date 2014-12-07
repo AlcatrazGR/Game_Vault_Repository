@@ -1,4 +1,5 @@
 <?php
+	require("account.php");
 	
 	//Array with all the names of the components that must be filled
 	//in the form
@@ -17,25 +18,39 @@
 		echo "<h2> You must first fill all the form fields </h2>";
 	}
 	else{
+		//Gets the data from the filled form.
 		$username = $_POST['username'];
 		$password = $_POST['password'];
 		$rpassword = $_POST['repassword'];
 	
-		$email = $_POST['email'];
+		$emailDomain = $_POST['email'];
 		$emailService = $_POST['emailService'];
-		$email = $email."@".$emailService;
-	
+
 		$sexType = $_POST['sex'];
 	
 		$date = $_POST['date'];
 		$month = $_POST['month'];
 		$year = $_POST['year'];
-		$time = $date.".".$month.".".$year;
-		$bdate = date("jS F, Y", strtotime($time));
-		
+
 		$userImage = $_POST['ImageToUpload'];
 		
-		echo $username." ".$password." ".$email." ".$sexType." ".$bdate." ".$userImage;
+		$accountDataArray = array($username, $password, $rpassword, $emailDomain);
+		$newAccountObj = new account();
+		$results = $newAccountObj->newAccountDataIntegrityCheck($accountDataArray);
+
+		
+		if($results == ""){
+			$email = $emailDomain."@".$emailService;
+			$time = $date.".".$month.".".$year;
+			$bdate = date("jS F, Y", strtotime($time));
+			
+			echo $username." ".$password." ".$email." ".$sexType." ".$bdate." ".$userImage;
+		}
+		else{
+			echo "<h3>".$results."</h3>";
+		}
+		
+
 	}
 		
 
