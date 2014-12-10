@@ -45,10 +45,17 @@
 				$results = userImageController();
 				
 				if($results == ""){
-					echo "OK";
+					$file = $_FILES['ImageToUpload'];
+					$file_name = $file['name'];
+					$accountDataArray = array($username, $password, $email, $sexType, $bdate, $file_name);
+					
+					$newAccountObj->accountExistsInDAO($accountDataArray);
+					//$dest = "User/Images";
+					//$dest.=$_FILES['ImageToUpload']['name']; 
+					//$fname=$_FILES['ImageToUpload']['tmp_name']; 	
 				}
 				else{
-					die($result);
+					die($results);
 				}
 			}
 			else{
@@ -57,7 +64,7 @@
 	
 		}
 		else{
-			die($result);
+			die($results);
 		}
 		
 
@@ -65,9 +72,7 @@
 		
 	//------------------------------------ Functions ---------------------------------------------
 		
-	function userImageController(){$dest = "User/";
-		$dest.=$_FILES['ImageToUpload']['name']; 
-		$fname=$_FILES['ImageToUpload']['tmp_name']; 
+	function userImageController(){
 		$file = $_FILES['ImageToUpload'];
 		
 		//Image Properties
@@ -80,10 +85,8 @@
 		$file_ext = strtolower(end($file_ext));
 		
 		$newAccountObj = new account();
-		$result = $newAccountObj->userImageChecks($dest, $fname, $file, $file_size, $file_ext);
-		
-		
-		
+		$result = $newAccountObj->userImageChecks($file, $file_size, $file_ext);
+
 		return $result;
 	}
 
