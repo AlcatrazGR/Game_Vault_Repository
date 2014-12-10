@@ -7,6 +7,11 @@
 	//to do with user accounts.
 	class account{
 		
+		
+		public function setAccountData(){
+		
+		}
+		
 		//Gets all the accounts from the database and returns
 		//an array of arrays back to the caller.
 		public function getAccountFromDAO(){
@@ -51,6 +56,33 @@
 			//Checks if the password and retyped password are the same
 			if($newAccountObj[1] != $newAccountObj[2]){
 				$errorMessage .= "Password and Re-typed Password mismatch! <br />";
+			}
+			
+			return $errorMessage;
+		}
+		
+		//Method that checks the integrity of the image to be uploaded.
+		public function userImageChecks($destination, $tmpName, $image, $imageSize, $extension){
+			$errorMessage = "";
+			$allowedExtensions = array("jpg","jpeg","gif","bmp","JPG","JPEG","GIF","BMP");
+			
+			//Chechs if the extension of the image is allowed
+			if(in_array($extension, $allowedExtensions)){
+				
+				//Checks the image size
+				if($imageSize <= 697152){
+				
+					//Checks if the directory for the users images exists, if not it creates it
+					if(!is_dir("User/Images/")){
+						mkdir("User/Images/", 0777, true);
+					}
+				}
+				else{
+					$errorMessage .= "The size of the image exceeds the limit !! <br />";
+				}
+			}
+			else{
+				$errorMessage .= "The extension of the file is invalid !! <br />";
 			}
 			
 			return $errorMessage;

@@ -64,9 +64,8 @@
 
 			<!--Conent Area with the main part-->
 			<div id="content_area">
-				<div id="main_content">
-					
-					<form action="PHP_Scripts/submit.php" method="POST">
+				<div id="main_content">		
+					<form action="PHP_Scripts/submit.php" enctype="multipart/form-data" method="POST">
 
 						<h3> Account Creation </h3>
 						User Name :&nbsp; <input type="text" name="username" /> <br /> <br />
@@ -114,7 +113,7 @@
 						<br />
 						
 						<input type="submit" value="Submit" name="submit" />
-					</form>
+					</form>	
 				</div>
 			</div>
 			
