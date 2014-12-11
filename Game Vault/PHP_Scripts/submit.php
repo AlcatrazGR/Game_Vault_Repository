@@ -49,7 +49,13 @@
 					$file_name = $file['name'];
 					$accountDataArray = array($username, $password, $email, $sexType, $bdate, $file_name);
 					
-					$newAccountObj->accountExistsInDAO($accountDataArray);
+					$results = $newAccountObj->accountExistsInDAO($accountDataArray);
+					if($result == true){
+					
+					}
+					else{
+						die("The username or password given already exists!!");
+					}
 					//$dest = "User/Images";
 					//$dest.=$_FILES['ImageToUpload']['name']; 
 					//$fname=$_FILES['ImageToUpload']['tmp_name']; 	

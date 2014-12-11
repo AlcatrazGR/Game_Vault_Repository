@@ -85,9 +85,15 @@
 		
 		//Method that checks if the account already exists on database
 		public function accountExistsInDAO($accountArray){
-			echo $accountArray[0]." ".$accountArray[1]." ".$accountArray[2]." ".$accountArray[3]." ".$accountArray[4]." ".$accountArray[5];
+			$check = true;
+			$query = "SELECT * FROM accounts WHERE ((USERNAME='".$accountArray[0]."') OR (PASSWORD='".$accountArray[1]."'))";
+			$result = mysql_query($query);
 			
+			$rowsNum = mysql_num_rows($result);
+			if($rowsNum != 0)
+				$check = false;
 		
+			return $check;
 		}
 		
 		
