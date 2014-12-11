@@ -51,14 +51,16 @@
 					
 					$results = $newAccountObj->accountExistsInDAO($accountDataArray);
 					if($result == true){
+						//Setting the destination and the temporary names of the file
+						$dest = "User/Images";
+						$dest.=$_FILES['ImageToUpload']['name']; 
+						$fname=$_FILES['ImageToUpload']['tmp_name']; 
+						
 					
 					}
 					else{
 						die("The username or password given already exists!!");
-					}
-					//$dest = "User/Images";
-					//$dest.=$_FILES['ImageToUpload']['name']; 
-					//$fname=$_FILES['ImageToUpload']['tmp_name']; 	
+					}	
 				}
 				else{
 					die($results);
