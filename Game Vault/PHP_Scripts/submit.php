@@ -35,28 +35,34 @@
 		$accountDataArray = array($username, $password, $rpassword, $emailDomain);
 		$newAccountObj = new account();
 		$results = $newAccountObj->newAccountDataIntegrityCheck($accountDataArray);
-
+		
+		//checks the data integrity
 		if($results == ""){
 			$email = $emailDomain."@".$emailService;
 			$time = $date.".".$month.".".$year;
 			$bdate = date("jS F, Y", strtotime($time));
 			
+			//checks if the 'file' field is not empty
 			if(!empty($_FILES)){ 
 				$results = userImageController();
 				
+				//checks the integrity of the uploaded image
 				if($results == ""){
 					$file = $_FILES['ImageToUpload'];
 					$file_name = $file['name'];
 					$accountDataArray = array($username, $password, $email, $sexType, $bdate, $file_name);
 					
 					$results = $newAccountObj->accountExistsInDAO($accountDataArray);
-					if($result == true){
+					
+					//Checks if the account already exists on database
+					if($results == true){
 						//Setting the destination and the temporary names of the file
-						$dest = "User/Images";
+						$dest = "User/Images/";
 						$dest.=$_FILES['ImageToUpload']['name']; 
 						$fname=$_FILES['ImageToUpload']['tmp_name']; 
 						
-					
+						$accountDataArray = array($username, $password, $email, $sexType, $bdate, $file_name, $dest, $fname);
+						$newAccountObj->newAccountSubmition($accountDataArray);
 					}
 					else{
 						die("The username or password given already exists!!");

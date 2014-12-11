@@ -90,15 +90,24 @@
 			$result = mysql_query($query);
 			
 			$rowsNum = mysql_num_rows($result);
-			if($rowsNum != 0)
+			if($rowsNum != 0){
 				$check = false;
-		
+			}
+			
 			return $check;
 		}
 		
-		public function newAccountSubmition(){
-		
-		
+		//Method that inserts the new account into the database and also
+		//uploads the image to the location 'User/Images/'
+		public function newAccountSubmition($accountArray){
+			move_uploaded_file($accountArray[7], $accountArray[6]); 
+			
+			$accountType = "user";
+			$query = "INSERT INTO accounts (ACCOUNT_TYPE, USERNAME, PASSWORD, EMAIL, SEX, BIRTH_DATE, USER_PHOTO)
+				VALUES ('".$accountType."', '".$accountArray[0]."', '".$accountArray[1]."', '".$accountArray[2]."',
+				'".$accountArray[3]."', '".$accountArray[4]."', '".$accountArray[5]."');";
+			mysql_query($query);
+			
 		}
 		
 		
