@@ -39,8 +39,11 @@
 		//checks the data integrity
 		if($results == ""){
 			$email = $emailDomain."@".$emailService;
-			$time = $date.".".$month.".".$year;
-			$bdate = date("jS F, Y", strtotime($time));
+			//$time = $date.".".$month.".".$year;
+			$time = $year."-".$month."-".$date;
+			$date = strtotime($time);
+			//$bdate = date("jS F, Y", strtotime($time));
+			$bdate = date('Y/m/d', $date);
 			
 			//checks if the 'file' field is not empty
 			if(!empty($_FILES)){ 
@@ -63,6 +66,8 @@
 						
 						$accountDataArray = array($username, $password, $email, $sexType, $bdate, $file_name, $dest, $fname);
 						$newAccountObj->newAccountSubmition($accountDataArray);
+						
+						echo "Account has been successfully created!";
 					}
 					else{
 						die("The username or password given already exists!!");

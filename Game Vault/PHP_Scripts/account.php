@@ -107,7 +107,7 @@
 				VALUES ('".$accountType."', '".$accountArray[0]."', '".$accountArray[1]."', '".$accountArray[2]."',
 				'".$accountArray[3]."', '".$accountArray[4]."', '".$accountArray[5]."');";
 			mysql_query($query);
-			
+		
 		}
 		
 		
