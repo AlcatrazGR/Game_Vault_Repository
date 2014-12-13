@@ -29,13 +29,14 @@
 			$connectivityObj = new UserConnectivity();
 			$connectivityObj->setData($username);
 			$result = $connectivityObj->connectivityCheck();
-			
-			//if there isn't any cookie initialized for the user
-			if($result == false){
-				$connectivityObj->setUserCookie();
+		
+			//if there isn't any cookie initialized for the user and the
+			//check box is checked.
+			if(($result == false) && (isset($_POST['remember']))){
+				$connectivityObj->setPersistentUserCookie();
 			}
 			else{
-			
+				echo "a session cookie will be inittilalized";
 			}
 			
 		}

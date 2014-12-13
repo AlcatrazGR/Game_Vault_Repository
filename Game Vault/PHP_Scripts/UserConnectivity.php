@@ -22,8 +22,13 @@
 			return $check;
 		}
 		
-		public function setUserCookie(){
-		
+		//Sets a persistent cookie for the user
+		public function setPersistentUserCookie(){
+			$expires = time()+60*60*24*30;
+			$name = "user";
+			$value = $this->acname;
+			
+			setcookie($name, $value, $expires);
 		}
 	
 	
