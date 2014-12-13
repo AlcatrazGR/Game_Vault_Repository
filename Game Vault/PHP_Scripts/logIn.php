@@ -14,14 +14,12 @@
 		//gets an M x D table with all the accounts 
 		$results = $accountObj->getAccountFromDAO();
 		$checkState = false;
-		$accountName="";
 		
 		//with a loop checks if the account exists.
 		for($i=0; $i<count($results); $i++){
 			$singleAccount = $results[$i];
 			if(($singleAccount[1] == $username) && ($singleAccount[2] == $password)){
 				$checkState = true;
-				$accountName = $singleAccount[1];
 			}
 		}
 		
@@ -29,8 +27,17 @@
 		//gain access
 		if($checkState == true){
 			$connectivityObj = new UserConnectivity();
-			$connectivityObj->acname = $accountName;
-			$connectivityObj->connectivityCheck();
+			$connectivityObj->setData($username);
+			$result = $connectivityObj->connectivityCheck();
+			
+			//if there isn't any cookie initialized for the user
+			if($result == false){
+				$connectivityObj->setUserCookie();
+			}
+			else{
+			
+			}
+			
 		}
 		else{
 			echo "The account you have entered is invalid";

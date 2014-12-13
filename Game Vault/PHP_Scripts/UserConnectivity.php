@@ -4,6 +4,10 @@
 	class UserConnectivity{
 		
 		public $acname;
+
+		public function setData($username){
+			$this->acname = $username;
+		}
 		
 		//Method that checks if there is a cookie enabled from
 		//the last log in of the user (basically checks if the
@@ -14,9 +18,12 @@
 				echo "Welcome ".$_COOKIE["user"];
 				$check = true;
 			}
-			else {
-				
-			}
+			
+			return $check;
+		}
+		
+		public function setUserCookie(){
+		
 		}
 	
 	
