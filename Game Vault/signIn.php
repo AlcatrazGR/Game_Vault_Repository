@@ -29,7 +29,7 @@
 			<!--Menu Part-->
 			<div id="cssmenu"> 
 				<ul>
-					<li> <a href='index.html'> <span> Home </span> </a> </li>
+					<li> <a href='index.php'> <span> Home </span> </a> </li>
 					<li> <a href='#'> <span> PC </span> </a> </li>
 					<li> <a href='#'> <span> XBOX One </span> </a> </li>
 					<li> <a href='#'> <span> PS4 </span> </a> </li>
@@ -58,7 +58,7 @@
 						</ul>
 					</li>
 					<li> <a href='#'> <span> News </span> </a> </li>
-					<li> <a href='signIn.html'> <span> Sign In </span> </a> </li>
+					<li> <a href='signIn.php'> <span> Sign In </span> </a> </li>
 				</ul>		
 			</div>
 

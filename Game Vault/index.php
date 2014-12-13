@@ -1,4 +1,4 @@
-<html>
+	<html>
 	<head>
 		<title> Game Vault </title>
 		<meta charset='UTF-8'>
@@ -29,7 +29,7 @@
 			<!--Menu Part-->
 			<div id="cssmenu"> 
 				<ul>
-					<li> <a href='index.html'> <span> Home </span> </a> </li>
+					<li> <a href='index.php'> <span> Home </span> </a> </li>
 					<li> <a href='#'> <span> PC </span> </a> </li>
 					<li> <a href='#'> <span> XBOX One </span> </a> </li>
 					<li> <a href='#'> <span> PS4 </span> </a> </li>
@@ -58,7 +58,7 @@
 						</ul>
 					</li>
 					<li> <a href='#'> <span> News </span> </a> </li>
-					<li> <a href='signIn.html'> <span> Sign In </span> </a> </li>
+					<li> <a href='signIn.php'> <span> Sign In </span> </a> </li>
 				</ul>		
 			</div>
 			
@@ -182,9 +182,8 @@
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="submit" value="Log In" name="submit"/>
+							<input type="submit" value="Log In" name="submit" />
 						</form>
-
 					</div>
 					
 					<div id="favorites">
@@ -199,3 +198,4 @@
 		</div>
 	</body>
 </html>
+
