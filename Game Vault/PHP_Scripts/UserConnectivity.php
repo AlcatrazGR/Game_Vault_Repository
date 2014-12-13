@@ -15,7 +15,6 @@
 		public function connectivityCheck(){
 			$check = false;
 			if(isset($_COOKIE["user"])) {
-				echo "Welcome ".$_COOKIE["user"];
 				$check = true;
 			}
 			
@@ -31,7 +30,20 @@
 			setcookie($name, $value, $expires);
 		}
 	
-	
+		//Returns the account name if there is a cookie
+		//else returns a string (used on greetings).
+		public function getAccountName(){
+			$cookieExistsence = $this->connectivityCheck();
+
+			if($cookieExistsence == true){
+				$username = $_COOKIE["user"];
+				$this->setData($username);
+				return $this->acname;
+			}
+			else
+				return "Hello anonymous!";
+		
+		}
 	
 	
 	}

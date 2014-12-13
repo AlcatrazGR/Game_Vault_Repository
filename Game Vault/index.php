@@ -158,6 +158,15 @@
 			<!--Conent Area with the main and the right column-->
 			<div id="content_area">
 				<div id="main_content">
+					<div id="greetings">
+						<?php include("PHP_Scripts/UserConnectivity.php"); ?>
+						<?php 
+							$connectionCookie = new UserConnectivity();
+							$result = $connectionCookie->getAccountName();
+
+							echo $result;
+						?>
+					</div>
 					<p>
 					Example Text : <br /> <br />
 					IE9, Firefox, Chrome, Opera, and Safari use the property opacity for transparency. The opacity property can take a value from 0.0 - 1.0. A lower value makes the element more transparent.

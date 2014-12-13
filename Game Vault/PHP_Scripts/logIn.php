@@ -38,12 +38,10 @@
 			else{
 				echo "a session cookie will be inittilalized";
 			}
-			
 		}
 		else{
 			echo "The account you have entered is invalid";
-		}
-		
+		}	
 	}
 	else{
 		echo "Error";

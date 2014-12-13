@@ -1,7 +1,6 @@
 #container{
 		width: 950px;
 		margin: 0 auto;	
-	
 }
 
 #header{
@@ -43,6 +42,13 @@
     opacity: 0.85;
 	position: relative;
 	z-index: -1;
+}
+
+#greetings{
+	height: 30px;
+	border-bottom: 2px solid;
+	border-bottom-color: darkorange;
+	
 }
 
 #right_col{
