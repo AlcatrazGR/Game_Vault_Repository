@@ -1,6 +1,5 @@
 <?php
 
-
 	class UserConnectivity{
 		
 		public $acname;
@@ -41,11 +40,11 @@
 				return $this->acname;
 			}
 			else
-				return "Hello anonymous!";
+				return "Hello, anonymous!";
 		
 		}
-	
-	
+		
 	}
+	
 
 ?>

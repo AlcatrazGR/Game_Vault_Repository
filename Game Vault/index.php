@@ -14,8 +14,16 @@
 		<link rel="stylesheet" type="text/css" href="CSS Files/styles.css">
 		<!--Initializing the css file for main style of the index-->
 		<link rel="stylesheet" type="text/css" href="CSS Files/indexStyle.css">
+		
+		<script type="text/javascript">
+			function invisible()
+			{
+				document.getElementById("adminlink").style.display="none";
+			}
+		</script>
+		
 	</head>
-	<body background="Images/PageStyle/background.jpg">
+	<body background="Images/PageStyle/background.jpg" onload="invisible()">
 		
 		<!--Container Start-->
 		<div id='container'>
@@ -59,6 +67,7 @@
 					</li>
 					<li> <a href='#'> <span> News </span> </a> </li>
 					<li> <a href='signIn.php'> <span> Sign In </span> </a> </li>
+					<li id="adminlink"> <a href='#'> <span> Admin </span> </a> </li>
 				</ul>		
 			</div>
 			
@@ -159,13 +168,13 @@
 			<div id="content_area">
 				<div id="main_content">
 					<div id="greetings">
-						<?php include("PHP_Scripts/UserConnectivity.php"); ?>
 						<?php 
-							$connectionCookie = new UserConnectivity();
-							$result = $connectionCookie->getAccountName();
-
-							echo $result;
+						
+						include("PHP_Scripts/UserConnectivity.php");
+						$usercon = new UserConnectivity(); 
+					
 						?>
+						
 					</div>
 					<p>
 					Example Text : <br /> <br />
@@ -181,7 +190,7 @@
 				<div id="right_col">
 					<div id="rightColWrapper">
 					<div id="login">
-						<form action="PHP_Scripts/logIn.php" method="POST" enctype="multipart/form-data">
+						<form id="loginForm" action="PHP_Scripts/logIn.php" method="POST" enctype="multipart/form-data">
 							<b>Unlock the Vault</b> <br />
 							<br>
 							Username:&nbsp;<input type="text" name="username"><br /><br />

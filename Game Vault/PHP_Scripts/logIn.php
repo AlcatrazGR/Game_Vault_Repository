@@ -36,7 +36,7 @@
 				$connectivityObj->setPersistentUserCookie();
 			}
 			else{
-				echo "a session cookie will be inittilalized";
+				echo $connectivityObj->acname." a session cookie will be initialized";
 			}
 		}
 		else{
