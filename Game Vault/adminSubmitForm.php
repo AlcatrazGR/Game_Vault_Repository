@@ -60,18 +60,44 @@
 			
 			<!--Conent Area with the main and the right column-->
 			<div id="content_area">
-				<div id="main_content">
-					<form action="" method="POST" enctype="multipart/form-data">
+				<form action="" method="POST" enctype="multipart/form-data">
+					<div id="main_content">
 						Game Title &nbsp; : &nbsp;  <input type="text" name="gameTitle" /> <br /><br />
 						Minimum Game Requirements &nbsp; : &nbsp;  <br /><textarea rows="10" cols="50" name="minRequirements"> </textarea> <br /> 
 						Maximum Game Requirements &nbsp; : &nbsp;  <br /><textarea rows="10" cols="50" name="minRequirements"> </textarea> <br />
 						Game Description &nbsp; : &nbsp; <br /> <textarea rows="13" cols="50" name="minRequirements"> </textarea> <br /><br />
-						Game Image &nbsp; : &nbsp; <input type="file" name="gameImage" />
-					</form>
-				</div>
-
+						Game Image &nbsp; : &nbsp; <input type="file" name="gameImage" /><br /><br />
+						<input type="submit" name="submit" value="Submit Game" />
+					</div>
+					<div id="adminPlatfrom">
+						<center> <h3> Choose a Platform : </h3> </center>
+						<input type="radio" name="gamePlatform" value="pc" />PC <br />
+						<input type="radio" name="gamePlatform" value="ps2" />Playstation2 <br />
+						<input type="radio" name="gamePlatform" value="ps3" />Playstation3 <br />
+						<input type="radio" name="gamePlatform" value="ps4" />Playstation4<br />
+						<input type="radio" name="gamePlatform" value="xbox" />Xbox<br />
+						<input type="radio" name="gamePlatform" value="xbox360" />Xbox 360 <br />
+						<input type="radio" name="gamePlatform" value="xboxone" />Xbox One<br />
+						<input type="radio" name="gamePlatform" value="gamecube" />GameCube<br />
+						<input type="radio" name="gamePlatform" value="wiiu" />Wii U<br />
+						<input type="radio" name="gamePlatform" value="wii" />Wii<br />
+						<input type="radio" name="gamePlatform" value="nintendo64" />Nintendo 64 
+					</div>
+					<div id="adminCategory">
+						<center> <h3> Choose a Game Category : </h3> </center>
+						<input type="radio" name="gameCategory" value="action" />Action <br />
+						<input type="radio" name="gameCategory" value="actionadventure" />Action-Adventure <br />
+						<input type="radio" name="gameCategory" value="adventure" />Adventure <br />
+						<input type="radio" name="gameCategory" value="roleplaying" />Role-Playing <br />
+						<input type="radio" name="gameCategory" value="simulation" />Simulation <br />
+						<input type="radio" name="gameCategory" value="strategy" />Strategy <br />
+						<input type="radio" name="gameCategory" value="sports" />Sports <br />
+						<input type="radio" name="gameCategory" value="mmorpg" />MMO Role-Playing <br />
+						<input type="radio" name="gameCategory" value="mmorts" />MMO RTS <br />
+					</div>
+				</form>	
 			</div>
-			
+					
 			<!--Footer Part-->
 			<div id="footer"> Footer </div>
 		</div>
