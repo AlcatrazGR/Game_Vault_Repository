@@ -60,8 +60,8 @@
 			
 			<!--Conent Area with the main and the right column-->
 			<div id="content_area">
-				<form action="" method="POST" enctype="multipart/form-data">
 					<div id="main_content">
+					<form action="" method="POST" enctype="multipart/form-data">
 						Game Title &nbsp; : &nbsp;  <input type="text" name="gameTitle" /> <br /><br />
 						Minimum Game Requirements &nbsp; : &nbsp;  <br /><textarea rows="10" cols="50" name="minRequirements"> </textarea> <br /> 
 						Maximum Game Requirements &nbsp; : &nbsp;  <br /><textarea rows="10" cols="50" name="minRequirements"> </textarea> <br />
@@ -69,6 +69,7 @@
 						Game Image &nbsp; : &nbsp; <input type="file" name="gameImage" /><br /><br />
 						<input type="submit" name="submit" value="Submit Game" />
 					</div>
+					<div id="right_col">
 					<div id="adminPlatfrom">
 						<center> <h3> Choose a Platform : </h3> </center>
 						<input type="radio" name="gamePlatform" value="pc" />PC <br />
@@ -95,7 +96,8 @@
 						<input type="radio" name="gameCategory" value="mmorpg" />MMO Role-Playing <br />
 						<input type="radio" name="gameCategory" value="mmorts" />MMO RTS <br />
 					</div>
-				</form>	
+					</div>
+					</form>	
 			</div>
 					
 			<!--Footer Part-->
