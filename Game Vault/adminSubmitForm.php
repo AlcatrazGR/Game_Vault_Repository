@@ -73,9 +73,9 @@
 					<div id="adminPlatfrom">
 						<center> <h3> Choose a Platform : </h3> </center>
 						<input type="radio" name="gamePlatform" value="pc" />PC <br />
-						<input type="radio" name="gamePlatform" value="ps2" />Playstation2 <br />
-						<input type="radio" name="gamePlatform" value="ps3" />Playstation3 <br />
-						<input type="radio" name="gamePlatform" value="ps4" />Playstation4<br />
+						<input type="radio" name="gamePlatform" value="playstation2" />Playstation2 <br />
+						<input type="radio" name="gamePlatform" value="playstation3" />Playstation3 <br />
+						<input type="radio" name="gamePlatform" value="playstation4" />Playstation4<br />
 						<input type="radio" name="gamePlatform" value="xbox" />Xbox<br />
 						<input type="radio" name="gamePlatform" value="xbox360" />Xbox 360 <br />
 						<input type="radio" name="gamePlatform" value="xboxone" />Xbox One<br />

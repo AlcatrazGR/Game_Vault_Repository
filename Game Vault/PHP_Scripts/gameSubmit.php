@@ -16,5 +16,19 @@
 	if($error){
 		die("You must first fill all the form fields");
 	}
-
+	else{
+		$gameTitle = $_POST['gameTitle'];
+		$minGameReq = $_POST['minRequirements'];
+		$maxGameReq = $_POST['maxRequirements'];
+		$gameDescr = $_POST['description'];
+		$gamePlat = $_POST['gamePlatform'];
+		$gameCateg = $_POST['gameCategory'];
+		
+	
+	
+	}
+	
+	
+	
+	
 ?>
