@@ -61,12 +61,13 @@
 			<!--Conent Area with the main and the right column-->
 			<div id="content_area">
 					<div id="main_content">
-					<form action="PHP_Scripts/gameSubmit.php" method="POST" enctype="multipart/form-data">
+				<form action="PHP_Scripts/gameSubmit.php" method="POST" enctype="multipart/form-data">
 						Game Title &nbsp; : &nbsp;  <input type="text" name="gameTitle" /> <br /><br />
 						Minimum Game Requirements &nbsp; : &nbsp;  <br /><textarea rows="10" cols="50" name="minRequirements"> </textarea> <br /> 
 						Maximum Game Requirements &nbsp; : &nbsp;  <br /><textarea rows="10" cols="50" name="maxRequirements"> </textarea> <br />
 						Game Description &nbsp; : &nbsp; <br /> <textarea rows="13" cols="50" name="description"> </textarea> <br /><br />
 						Game Image &nbsp; : &nbsp; <input type="file" name="gameImage" /><br /><br />
+						Youtube URL : <input type="text" name="url" /><br /><br />
 						<input type="submit" name="submit" value="Submit Game" />
 					</div>
 					<div id="right_col">
@@ -97,7 +98,7 @@
 						<input type="radio" name="gameCategory" value="mmorts" />MMO RTS <br />
 					</div>
 					</div>
-					</form>	
+				</form>	
 			</div>
 					
 			<!--Footer Part-->
