@@ -177,13 +177,27 @@
 						
 					</div>
 					<p>
-					Example Text : <br /> <br />
-					IE9, Firefox, Chrome, Opera, and Safari use the property opacity for transparency. The opacity property can take a value from 0.0 - 1.0. A lower value makes the element more transparent.
-					IE8 and earlier use filter:alpha(opacity=x). The x can take a value from 0 - 100. A lower value makes the element more transparent.
-					The first CSS block is similar to the code in Example 1. In addition, we have added what should happen when a user hover over one of the images. In this case we want the image to NOT be transparent when the user hover over it.
-					The CSS for this is: opacity=1.
-					IE8 and earlier: filter:alpha(opacity=100).
-					When the mouse pointer moves away from the image, the image will be transparent again.
+						<h2> Welcome to <u> Guild Vault</u> ! </h2>
+						The best site for game reviews - walkthroughs - trailers and more. 
+						<br /> <br />
+						
+						<img class="introIcons" src="Images/PageStyle/icon1.gif" />
+						If you haven't made already an account you can just click here :
+						<a href='signIn.php'> make new account </a> or you can just click
+						the selection "SIGN IN" on the menu above. <br /> <br /> <br /> 
+						
+						
+						<img class="introIcons" src="Images/PageStyle/icon4.gif" />
+						Browse your favorite games through a wide variety of gaming platforms,
+						such as : <a href="#"> PC </a> - <a href=""> Playstation 4 </a> -
+						<a href="#"> XBOX One </a> - <a href="#"> Wii U </a> and more, 
+						or by the category of the game. <br /> <br /> <br /> 
+						 
+						<img class="introIcons" src="Images/PageStyle/icon6.gif" />
+						You can learn the latest news, game releases, announcements from
+						all the gaming companies and also events of COMICON, by clicking
+						here : <a href="#"> News </a> or by selecting the "News" on the 
+						menu above.
 					</p>
 				</div>
 				

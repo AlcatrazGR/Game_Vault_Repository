@@ -38,6 +38,12 @@
 	border-top: 1px solid;
 }
 
+#main_content .introIcons{
+	float: left;
+	margin: 4px;
+}
+
+
 /* Slide Show CSS Region*/
 .slides {
     padding: 0;
