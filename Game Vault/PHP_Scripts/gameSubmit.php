@@ -23,8 +23,18 @@
 		$gameDescr = $_POST['description'];
 		$gamePlat = $_POST['gamePlatform'];
 		$gameCateg = $_POST['gameCategory'];
+		$file = $_FILES['gameImage'];
+		$file_name = $file['name'];
 		
-	
+		//checks if the 'file' field is not empty
+		if($file_name != ""){ 
+			echo $file_name." : file name";
+		}
+		else{
+			header( "refresh:3;url=../adminSubmitForm.php" );
+			echo "You didn't select any images";
+		
+		}
 	
 	}
 	

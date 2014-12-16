@@ -34,8 +34,10 @@
 			//check box is checked.
 			if(($result == false) && (isset($_POST['remember']))){
 				$connectivityObj->setPersistentUserCookie();
+				header( "refresh:0.5;url=../index.php" );
 			}
 			else{
+				header( "refresh:0.5;url=../index.php" );
 				echo $connectivityObj->acname." a session cookie will be initialized";
 			}
 		}

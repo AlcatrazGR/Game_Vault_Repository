@@ -169,9 +169,10 @@
 					<div id="greetings">
 						<?php 
 						
-						include("PHP_Scripts/UserConnectivity.php");
-						$usercon = new UserConnectivity(); 
-					
+							include("PHP_Scripts/UserConnectivity.php");
+							$usercon = new UserConnectivity(); 
+							$usname = $usercon->getAccountName();
+							echo "Hello, ".$usname;
 						?>
 						
 					</div>

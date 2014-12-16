@@ -26,7 +26,7 @@
 			$name = "user";
 			$value = $this->acname;
 			
-			setcookie($name, $value, $expires);
+			setcookie($name, $value, $expires, '/');
 		}
 	
 		//Returns the account name if there is a cookie

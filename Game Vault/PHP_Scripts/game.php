@@ -11,7 +11,9 @@
 		public $gamePlat;
 		public $gameCateg;
 	
-	
+		public setDataMembers(){
+			
+		}
 	
 	}
 

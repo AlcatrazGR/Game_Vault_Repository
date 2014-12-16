@@ -70,18 +70,22 @@
 						echo "Account has been successfully created!";
 					}
 					else{
+						header( "refresh:3;url=../signIn.php" );
 						die("The username or password given already exists!!");
 					}	
 				}
 				else{
+					header( "refresh:5;url=../signIn.php" );
 					die($results);
 				}
 			}
 			else{
+				header( "refresh:3;url=../signIn.php" );
 				die("No image selected");
 			}	
 		}
 		else{
+			header( "refresh:3;url=../signIn.php" );
 			die($results);
 		}
 	}
