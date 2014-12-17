@@ -45,22 +45,41 @@
 				
 				$result = $gameObj->gameImageIntegrity($file, $file_size, $file_ext);
 				if($result == ""){
-					header( "refresh:5;url=../adminSubmitForm.php" );
-					echo $result."<br /> You will be redirected back to the page ...";	
+					$result = $gameObj->gameDataExistInDatabase();
+					
+					if($result == true){
+						$dest = "Game/Images/";
+						$dest.=$_FILES['gameImage']['name']; 
+						$fname=$_FILES['gameImage']['tmp_name']; 
+						
+						$gameObj->insertGameToDatabase($dest, $fname);
+						
+						header( "refresh:5;url=../adminSubmitForm.php" );
+						echo "The game has been successfully inserted into the database <br />
+							You will be redirected back to the page ...
+						";		
+					}
+					else{
+						header( "refresh:5;url=../adminSubmitForm.php" );
+						echo "The game title or the image you have given already exist!!
+							<br /> You will be redirected back to the page ...
+						";		
+					}
 				}
 				else{
-				
+					header( "refresh:5;url=../adminSubmitForm.php" );
+					echo $result."<br /> You will be redirected back to the page ...";	
 				}
 				
 			}
 			else{
 				header( "refresh:5;url=../adminSubmitForm.php" );
-				echo $result."<br /> You will be redirected back to the page ...";	;
+				echo $result."<br /> You will be redirected back to the page ...";
 			}
 		}
 		else{
 			header( "refresh:3;url=../adminSubmitForm.php" );
-			echo "You didn't select any images<br /> You will be redirected back to the page ...";	;
+			echo "You didn't select any images<br /> You will be redirected back to the page ...";
 		}
 	
 	}

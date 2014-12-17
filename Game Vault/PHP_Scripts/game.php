@@ -60,18 +60,43 @@
 			else{
 				$errorMessage .= "The extension of the file is invalid !! <br />";
 			}
-			
 			return $errorMessage;			
 		}
 		
 		//Method that checks if the data given already exist in DAO
 		public function gameDataExistInDatabase(){
-		
+			$check = true;
+			$query = "SELECT * FROM games";
+			$result = mysql_query($query);
+			
+			while($row = mysql_fetch_array($result)){ 
+				if(($this->gameTitle == $row["GAME_TITLE"]) && ($this->image == $row["IMAGE"])){
+					$check = false;
+				}
+			}
+			
+			return $check;
 		}
 
 		//Method that inserts the new data row in the table 'game'
-		public function insertGameToDatabase(){
-		
+		public function insertGameToDatabase($dest, $fname){
+			move_uploaded_file($fname, $dest); 
+			
+			$gameTitle = $this->gameTitle;
+			$minReq =$this->minReq;
+			$maxReq =$this->maxReq;
+			$gameDesc = $this->gameDesc;
+			$image = $this->image;
+			$gamePlat = $this->gamePlat;
+			$gameCateg = $this->gameCateg;
+			$videoURL = $this->videoURL;
+
+			$query = "INSERT INTO games (GAME_TITLE, MIN_REQUIRE, MAX_REQUIRE, DESCRIPTION, IMAGE, PLATFORM, CATEGORY, VIDEO_URL) 
+			VALUES ('".$gameTitle."', '".$minReq."','".$maxReq."', '".$gameDesc."', 
+			'".$image."', '".$gamePlat."','".$gameCateg."', '".$videoURL."');";
+
+			mysql_query($query);
+			
 		}
 		
 	

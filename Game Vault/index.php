@@ -168,8 +168,8 @@
 				<div id="main_content">
 					<div id="greetings">
 						<?php 
-						
 							include("PHP_Scripts/UserConnectivity.php");
+							
 							$usercon = new UserConnectivity(); 
 							$usname = $usercon->getAccountName();
 							echo "Hello, ".$usname;
