@@ -42,8 +42,8 @@
     opacity: 0.85;
 	position: relative;
 	z-index: -1;
-	
 }
+
 
 #greetings{
 	height: 30px;
@@ -51,6 +51,7 @@
 	border-bottom-color: darkorange;
 	
 }
+
 
 #adminPlatfrom{
 	float: left;

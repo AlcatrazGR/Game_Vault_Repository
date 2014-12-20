@@ -9,16 +9,54 @@
 		<meta name="description" content="The Best Site For Game Reviews For Every Platform">
 		
 		<!--Initializing the css file for the structure of the site-->
-		<link rel="stylesheet" type="text/css" href="CSS Files/mainStructure.css">
+		<link rel="stylesheet" type="text/css" href="CSS Files/mainStructure.css"> </link>
 		<!--Initializing the css file for the menu of the site-->
-		<link rel="stylesheet" type="text/css" href="CSS Files/styles.css">
+		<link rel="stylesheet" type="text/css" href="CSS Files/styles.css"> </link>
 		<!--Initializing the css file for main style of the index-->
-		<link rel="stylesheet" type="text/css" href="CSS Files/indexStyle.css">
+		<link rel="stylesheet" type="text/css" href="indexStyle.css"> </link>
 		
 		<script type="text/javascript">
 			function invisible(){
-				//document.getElementById("adminlink").style.display="none";
+				document.getElementById("adminlink").style.display="none";
+				
+				try{
+					var myCookie = getCookie("user");
+				}
+				catch{}
+				try{
+					var myCookie = getCookie("admin");
+				}
+				catch{}
+				
+				if(myCookie != null){
+					if(myCookie == "admin")
+						document.getElementById("adminlink").style.display="initial";
+				}
 			}
+			
+			function getCookie(name) {
+				var dc = document.cookie;
+				var prefix = name + "=";
+				var begin = dc.indexOf("; " + prefix);
+				if (begin == -1) {
+					begin = dc.indexOf(prefix);
+					if (begin != 0) 
+						return null;
+				}
+				else {
+					begin += 2;
+					var end = document.cookie.indexOf(";", begin);
+					if (end == -1) {
+						end = dc.length;
+					}
+				}
+				return unescape(dc.substring(begin + prefix.length, end));
+			} 
+			
+			function logOutProcess(){
+				
+			}
+			
 		</script>
 		
 	</head>
@@ -37,7 +75,7 @@
 			<div id="cssmenu"> 
 				<ul>
 					<li> <a href='index.php'> <span> Home </span> </a> </li>
-					<li> <a href='#'> <span> PC </span> </a> </li>
+					<li> <a href='pcGames.php'> <span> PC </span> </a> </li>
 					<li> <a href='#'> <span> XBOX One </span> </a> </li>
 					<li> <a href='#'> <span> PS4 </span> </a> </li>
 					<li> <a href='#'> <span> Wii U </span> </a> </li>
@@ -167,24 +205,28 @@
 			<div id="content_area">
 				<div id="main_content">
 					<div id="greetings">
+						
 						<?php 
 							include("PHP_Scripts/UserConnectivity.php");
 							
 							$usercon = new UserConnectivity(); 
 							$usname = $usercon->getAccountName();
-							echo "Hello, ".$usname;
+							echo $usname;
 						?>
+						
+						<a id="logOutLink" href="javascript:logOutProcess();"> Log Out </a>
+						
 						
 					</div>
 					<p>
 						<h2> Welcome to <u> Guild Vault</u> ! </h2>
 						The best site for game reviews - walkthroughs - trailers and more. 
-						<br /> <br />
+						<br /> <br /><br /> 
 						
 						<img class="introIcons" src="Images/PageStyle/icon1.gif" />
 						If you haven't made already an account you can just click here :
 						<a href='signIn.php'> make new account </a> or you can just click
-						the selection "SIGN IN" on the menu above. <br /> <br /> <br /> 
+						the selection "SIGN IN" on the menu above. <br /> <br /> <br /> <br /> 
 						
 						
 						<img class="introIcons" src="Images/PageStyle/icon4.gif" />

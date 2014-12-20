@@ -22,7 +22,7 @@
 
 #main_content {
 	color: white;
-	font-size: 17px;	
+	font-size: 18px;	
 }
 
 #login {
@@ -33,16 +33,19 @@
 	color: darkorange;
 }
 
+#gameList {
+	border: 1px;
+}
+
 #adminPlatfrom , #adminCategory{
 	color: darkorange;
 	border-top: 1px solid;
 }
 
-img .introIcons{
+.introIcons {
 	float: left;
-	margin: 4px;
+	margin: 10px;
 }
-
 
 /* Slide Show CSS Region*/
 .slides {
@@ -64,7 +67,9 @@ img .introIcons{
     -webkit-touch-callout: none;
 }
 
-.slides input { display: none; }
+.slides input { 
+	display: none; 
+}
 
 .slide-container { display: block; }
 

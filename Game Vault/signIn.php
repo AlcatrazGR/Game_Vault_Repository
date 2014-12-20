@@ -13,7 +13,7 @@
 		<!--Initializing the css file for the menu of the site-->
 		<link rel="stylesheet" type="text/css" href="CSS Files/styles.css">
 		<!--Initializing the css file for main style of the index-->
-		<link rel="stylesheet" type="text/css" href="CSS Files/indexStyle.css">
+		<link rel="stylesheet" type="text/css" href="indexStyle.css">
 	</head>
 	<body background="Images/PageStyle/background.jpg">
 		
@@ -30,7 +30,7 @@
 			<div id="cssmenu"> 
 				<ul>
 					<li> <a href='index.php'> <span> Home </span> </a> </li>
-					<li> <a href='#'> <span> PC </span> </a> </li>
+					<li> <a href='pcGames.php'> <span> PC </span> </a> </li>
 					<li> <a href='#'> <span> XBOX One </span> </a> </li>
 					<li> <a href='#'> <span> PS4 </span> </a> </li>
 					<li> <a href='#'> <span> Wii U </span> </a> </li>

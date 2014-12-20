@@ -20,6 +20,7 @@
 			$singleAccount = $results[$i];
 			if(($singleAccount[1] == $username) && ($singleAccount[2] == $password)){
 				$checkState = true;
+				$accountType = $singleAccount[0];
 			}
 		}
 		
@@ -27,7 +28,7 @@
 		//gain access
 		if($checkState == true){
 			$connectivityObj = new UserConnectivity();
-			$connectivityObj->setData($username);
+			$connectivityObj->setData($username, $accountType);
 			$result = $connectivityObj->connectivityCheck();
 		
 			//if there isn't any cookie initialized for the user and the

@@ -67,7 +67,9 @@
 						$accountDataArray = array($username, $password, $email, $sexType, $bdate, $file_name, $dest, $fname);
 						$newAccountObj->newAccountSubmition($accountDataArray);
 						
-						echo "Account has been successfully created!";
+						echo "Account has been successfully created! <br /> 
+							You will be redirected to the page shortly ... ";
+						header( "refresh:3;url=../signIn.php" );
 					}
 					else{
 						header( "refresh:3;url=../signIn.php" );
