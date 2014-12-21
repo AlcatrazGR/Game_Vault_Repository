@@ -32,7 +32,7 @@
 	background-color: black;
 }
 
-#main_content{
+#main_content, #main_contentPC{
 	float:left;
 	width: 625px;
 	height: 100%;
@@ -43,7 +43,9 @@
 	position: relative;
 	z-index: -1;
 }
-
+#main_contentPC{
+	width: 700px !important;
+}
 
 #greetings{
 	height: 30px;

@@ -25,16 +25,32 @@
 	font-size: 18px;	
 }
 
-#login {
+#main_contentPC a{
+	font-size: 21px;
+}
+#main_contentPC a:hover, a:focus, a:active { 
+	text-decoration: underline; 
+	color: #9685BA;
+	text-shadow: -1px 1px 4px #ffc, 1px -1px 8px white;
+}
+
+#login{
 	color: darkorange;
 }
 
-#favorites {
+#favorites{
 	color: darkorange;
 }
 
 #gameList {
-	border: 1px;
+	color: white;
+	border-style: solid;
+	border-width: 5px;
+	font-size: 18px;
+}
+
+#gameList tr td{
+	width: 200px;
 }
 
 #adminPlatfrom , #adminCategory{

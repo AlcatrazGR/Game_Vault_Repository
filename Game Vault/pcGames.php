@@ -9,11 +9,11 @@
 		<meta name="description" content="The Best Site For Game Reviews For Every Platform">
 		
 		<!--Initializing the css file for the structure of the site-->
-		<link rel="stylesheet" type="text/css" href="CSS Files/mainStructure.css">
+		<link rel="stylesheet" type="text/css" href="CSS Files/mainStructure.css"></link>
 		<!--Initializing the css file for the menu of the site-->
-		<link rel="stylesheet" type="text/css" href="CSS Files/styles.css">
+		<link rel="stylesheet" type="text/css" href="CSS Files/styles.css"></link>
 		<!--Initializing the css file for main style of the index-->
-		<link rel="stylesheet" type="text/css" href="indexStyle.css">
+		<link rel="stylesheet" type="text/css" href="indexStyle.css"></link>
 
 		
 	</head>
@@ -65,27 +65,40 @@
 			</div>
 			
 			<div id="content_area">
-				<div id="main_content">
+				<div id="main_contentPC">
 					<br />
+					<center>
+						<a href="#"> # </a> - <a href="#"> A </a> - <a href="#"> B </a> - <a href="#"> C </a>
+						- <a href="#"> D </a> - <a href="#"> E </a> - <a href="#"> F </a> - <a href="#"> G </a>
+						- <a href="#"> H </a> - <a href="#"> I </a> - <a href="#"> J </a> - <a href="#"> K </a>
+						- <a href="#"> L </a> - <a href="#"> M </a> - <a href="#"> N </a> - <a href="#"> O </a>
+						- <a href="#"> P </a> - <a href="#"> Q </a> - <a href="#"> R </a> - <a href="#"> S </a>
+						- <a href="#"> T </a> - <a href="#"> U </a> - <a href="#"> V </a> - <a href="#"> W </a>
+						- <a href="#"> X </a> - <a href="#"> Y </a> - <a href="#"> Z </a>
 				
-					<a href="#"> # </a> - <a href="#"> A </a> - <a href="#"> B </a> - <a href="#"> C </a>
-					- <a href="#"> D </a> - <a href="#"> E </a> - <a href="#"> F </a> - <a href="#"> G </a>
-					- <a href="#"> H </a> - <a href="#"> I </a> - <a href="#"> J </a> - <a href="#"> K </a>
-					- <a href="#"> L </a> - <a href="#"> M </a> - <a href="#"> N </a> - <a href="#"> O </a>
-					- <a href="#"> P </a> - <a href="#"> Q </a> - <a href="#"> R </a> - <a href="#"> S </a>
-					- <a href="#"> T </a> - <a href="#"> U </a> - <a href="#"> V </a> - <a href="#"> W </a>
-					- <a href="#"> X </a> - <a href="#"> Y </a> - <a href="#"> Z </a>
-				
-					<br /> <br />
-					<table id="gameList">
-						<tr>
-							<td> Title </td>
-							<td> Console </td>
-							<td> Genre </td>
-						</tr>
+						<br /> <br />
 					
-					
-					</table>
+						<table id="gameList">
+							<tr>
+								<td> Title </td>
+								<td> Console </td>
+								<td> Genre </td>
+							</tr>
+							<?php
+								require("PHP_Scripts/game.php");
+								$gameObj = new game();
+								$results = $gameObj->getGamesList("pc", "All");
+								
+								while($row = mysql_fetch_array($results)){
+									echo "<tr>
+											<td> ".$row["GAME_TITLE"]." </td>
+											<td> ".$row["PLATFORM"]." </td>
+											<td> ".$row["CATEGORY"]." </td>
+										 </tr>";
+								}
+							?>
+						</table>
+					</center>
 				</div>
 				
 			</div>

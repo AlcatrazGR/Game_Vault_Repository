@@ -96,7 +96,21 @@
 			'".$image."', '".$gamePlat."','".$gameCateg."', '".$videoURL."');";
 
 			mysql_query($query);
+		}
+		
+		//Method that handles the process of returning the list of games that exist
+		//in database. The two parametres are used to define the machine that the 
+		//games are working and the their category.
+		public function getGamesList($platform, $category){
+			if($category == "All"){
+				$query = "SELECT GAME_TITLE,PLATFORM,CATEGORY FROM games WHERE PLATFORM = '".$platform."'";
+				$results = mysql_query($query);
+				return $results;
+			}
+			else{
 			
+			}
+		
 		}
 		
 	
