@@ -30,8 +30,8 @@
 }
 #main_contentPC a:hover, a:focus, a:active { 
 	text-decoration: underline; 
-	color: #9685BA;
-	text-shadow: -1px 1px 4px #ffc, 1px -1px 8px white;
+	color: darkorange;
+	text-shadow: -1px 1px 2px #ffc, 1px -1px 8px white;
 }
 
 #login{
@@ -44,13 +44,18 @@
 
 #gameList {
 	color: white;
+	border-radius: 13px;
 	border-style: solid;
 	border-width: 5px;
 	font-size: 18px;
+	border-color: #333;
+	border-spacing: 0;
+
 }
 
 #gameList tr td{
 	width: 200px;
+
 }
 
 #adminPlatfrom , #adminCategory{
