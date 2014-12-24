@@ -107,11 +107,13 @@
 							$url = "http://www.youtube.com/v/";
 							$videoCode = end((explode('/', $gameObj->videoURL )));
 							$videoURL = $url.$videoCode;
-			
+					
 							echo "
-								<object width='420' height='315'
+								<center>
+								<object width='450' height='345'
 									data='".$videoURL."'>
 								</object>
+								</center>
 							";
 						?>
 					</div>
