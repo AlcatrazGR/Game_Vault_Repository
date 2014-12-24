@@ -8,7 +8,9 @@
 		<link rel="stylesheet" type="text/css" href="CSS_Files/styles.css"></link>
 		<!--Initializing the css file for main style of the index-->
 		<link rel="stylesheet" type="text/css" href="CSS_Files/indexStyle.css"></link>
-
+		<!--CSS file that is responsible for the cascade style of the game form-->
+		<link rel="stylesheet" type="text/css" href="CSS_Files/gameFormStyle..css"></link>
+		
 	</head>
 	<body background="Images/PageStyle/background.jpg">
 		
@@ -72,9 +74,16 @@
 									$row["VIDEO_URL"]);
 							}
 						}
-					
-					
 					?>
+					<table>
+						<tr>
+							<?php 
+								$imagePath = "PHP_Scripts/Game/Images/".$gameObj->image;
+								echo "<td> <img id='gameImage' src=".$imagePath." /> </td>";
+								
+							?>
+						</tr>
+					</table>
 				</div>
 			</div>
 			
