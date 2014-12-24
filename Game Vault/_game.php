@@ -96,6 +96,26 @@
 						<?php echo $gameObj->maxReq;?>
 					</div>
 
+					<div id="gameDescriptionPart">
+						<b> Game Plot </b> <br /><br />
+						<?php echo $gameObj->gameDesc; ?>
+					</div>
+					
+					<div id="gameVideoPart">
+						<b> Game Trailer </b> <br /><br />
+						<?php
+							$url = "http://www.youtube.com/v/";
+							$videoCode = end((explode('/', $gameObj->videoURL )));
+							$videoURL = $url.$videoCode;
+			
+							echo "
+								<object width='420' height='315'
+									data='".$videoURL."'>
+								</object>
+							";
+						?>
+					</div>
+					
 				</div>
 			</div>
 			

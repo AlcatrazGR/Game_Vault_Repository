@@ -50,10 +50,11 @@
 	border-color: white;
 	
 	width: 295px;
-	height: 276px;
+	height: 266px;
 	float: right;
 	padding: 10px;
 	font-size: 18px;
+	margin-top: 10px;
 }
 
 #maxReqPart{
@@ -61,10 +62,31 @@
 	border-color: white;
 	
 	width: 295px;
-	height: 276px;
+	height: 266px;
 	float: left;
 	padding: 10px;
 	font-size: 18px;
+	margin-top: 10px;
+}
+
+#gameDescriptionPart{
+	border: 2px solid;
+	border-color: white;
+	
+	float: left;
+	width: 340px;
+	height: 400px;
+	margin-top: 25px;
+}
+
+#gameVideoPart{
+	border: 2px solid;
+	border-color: white;
+	
+	float: right;
+	width: 560px;
+	height: 400px;
+	margin-top: 25px;
 }
 
 #gameImage{
