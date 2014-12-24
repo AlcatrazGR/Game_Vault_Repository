@@ -38,8 +38,8 @@
 				header( "refresh:0.5;url=../index.php" );
 			}
 			else{
+				$connectivityObj->setSessionCookie();
 				header( "refresh:0.5;url=../index.php" );
-				echo $connectivityObj->acname." a session cookie will be initialized";
 			}
 		}
 		else{

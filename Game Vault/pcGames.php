@@ -9,11 +9,11 @@
 		<meta name="description" content="The Best Site For Game Reviews For Every Platform">
 		
 		<!--Initializing the css file for the structure of the site-->
-		<link rel="stylesheet" type="text/css" href="CSS Files/mainStructure.css"></link>
+		<link rel="stylesheet" type="text/css" href="CSS_Files/mainStructure.css"></link>
 		<!--Initializing the css file for the menu of the site-->
-		<link rel="stylesheet" type="text/css" href="CSS Files/styles.css"></link>
+		<link rel="stylesheet" type="text/css" href="CSS_Files/styles.css"></link>
 		<!--Initializing the css file for main style of the index-->
-		<link rel="stylesheet" type="text/css" href="indexStyle.css"></link>
+		<link rel="stylesheet" type="text/css" href="CSS_Files/indexStyle.css"></link>
 
 		
 	</head>
@@ -91,7 +91,7 @@
 								
 								while($row = mysql_fetch_array($results)){
 									echo "<tr>
-											<td> <a href='#'>".$row["GAME_TITLE"]."</a> </td> 
+											<td> <a href='_game.php?title=".$row["GAME_TITLE"]."'>".$row["GAME_TITLE"]."</a> </td> 
 											<td> ".$row["PLATFORM"]." </td>
 											<td> ".$row["CATEGORY"]." </td>
 										 </tr>";

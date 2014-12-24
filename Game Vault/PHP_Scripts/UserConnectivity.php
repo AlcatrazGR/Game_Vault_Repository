@@ -44,6 +44,22 @@
 				setcookie($name, $value, $expires, '/');
 			}
 		}
+		
+		//Sets a session cookie, in case the check box 
+		//'remember me' is not set.
+		public function setSessionCookie(){
+			$expires = time()+0;
+			$value = $this->acname;
+			
+			if($this->acType == "admin"){
+				$name = "admin";
+				setcookie($name, $value, $expires, '/');
+			}
+			else{
+				$name = "user";
+				setcookie($name, $value, $expires, '/');
+			}
+		}
 	
 		//Returns the account name if there is a cookie
 		//else returns a string (used on greetings).

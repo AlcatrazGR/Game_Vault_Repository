@@ -9,11 +9,11 @@
 		<meta name="description" content="The Best Site For Game Reviews For Every Platform">
 		
 		<!--Initializing the css file for the structure of the site-->
-		<link rel="stylesheet" type="text/css" href="CSS Files/mainStructure.css">
+		<link rel="stylesheet" type="text/css" href="CSS_Files/mainStructure.css">
 		<!--Initializing the css file for the menu of the site-->
-		<link rel="stylesheet" type="text/css" href="CSS Files/styles.css">
+		<link rel="stylesheet" type="text/css" href="CSS_Files/styles.css">
 		<!--Initializing the css file for main style of the index-->
-		<link rel="stylesheet" type="text/css" href="indexStyle.css">
+		<link rel="stylesheet" type="text/css" href="CSS_Files/indexStyle.css">
 	</head>
 	<body background="Images/PageStyle/background.jpg">
 		
