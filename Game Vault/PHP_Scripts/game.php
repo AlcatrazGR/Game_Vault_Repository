@@ -112,7 +112,19 @@
 				$results = mysql_query($query);
 				return $results;
 			}
+		}
 		
+		public function getGamesSortedByCategoryAndPlatform($platform, $category){
+			if($category == "All"){
+				$query = "SELECT * FROM games WHERE PLATFORM = '".$platform."'";
+				$results = mysql_query($query);
+				return $results;
+			}
+			else{
+				$query = "SELECT * FROM games WHERE ((PLATFORM = '".$platform."') && (CATEGORY = '".$category."'))";
+				$results = mysql_query($query);
+				return $results;
+			}
 		}
 		
 	

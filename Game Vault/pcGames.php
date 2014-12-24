@@ -91,7 +91,7 @@
 								
 								while($row = mysql_fetch_array($results)){
 									echo "<tr>
-											<td> <a href='_game.php?title=".$row["GAME_TITLE"]."'>".$row["GAME_TITLE"]."</a> </td> 
+											<td> <a href='_game.php?title=".$row["GAME_TITLE"]."&platform=".$row["PLATFORM"]."'>".$row["GAME_TITLE"]."</a> </td> 
 											<td> ".$row["PLATFORM"]." </td>
 											<td> ".$row["CATEGORY"]." </td>
 										 </tr>";

@@ -60,8 +60,18 @@
 			<div id="content_area">
 				<div id="main_game_form">
 					<?php
+						require("PHP_Scripts/game.php");
 						
-					
+						$gameObj = new game();
+						$results = $gameObj->getGamesSortedByCategoryAndPlatform($_GET['platform'], "All");
+						
+						while($row = mysql_fetch_array($results)){
+							if($_GET["title"] == $row["GAME_TITLE"]){
+								$gameObj->setDataMembers($row["GAME_TITLE"], $row["MIN_REQUIRE"], $row["MAX_REQUIRE"],
+									$row["DESCRIPTION"], $row["IMAGE"], $row["PLATFORM"], $row["CATEGORY"],
+									$row["VIDEO_URL"]);
+							}
+						}
 					
 					
 					?>
