@@ -50,13 +50,15 @@
 
 #main_game_form{
 	height: 100%;
-	width:950px;
+	width:919px;
 	
 	background-color: black;
     border: 1px solid black;
     opacity: 0.85;
 	position: relative;
 	z-index: -1;
+	
+	padding: 15px;
 }
 
 #greetings{
@@ -65,7 +67,6 @@
 	border-bottom-color: darkorange;
 	
 }
-
 
 #adminPlatfrom{
 	float: left;

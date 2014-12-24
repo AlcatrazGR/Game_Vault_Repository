@@ -9,7 +9,7 @@
 		<!--Initializing the css file for main style of the index-->
 		<link rel="stylesheet" type="text/css" href="CSS_Files/indexStyle.css"></link>
 		<!--CSS file that is responsible for the cascade style of the game form-->
-		<link rel="stylesheet" type="text/css" href="CSS_Files/gameFormStyle..css"></link>
+		<link rel="stylesheet" type="text/css" href="CSS_Files/gameFormStyle.css"></link>
 		
 	</head>
 	<body background="Images/PageStyle/background.jpg">
@@ -75,15 +75,27 @@
 							}
 						}
 					?>
-					<table>
-						<tr>
-							<?php 
-								$imagePath = "PHP_Scripts/Game/Images/".$gameObj->image;
-								echo "<td> <img id='gameImage' src=".$imagePath." /> </td>";
-								
-							?>
-						</tr>
-					</table>
+					<div id="gameImagePart">
+						<?php 
+							$imagePath = "PHP_Scripts/Game/Images/".$gameObj->image;
+							echo "<img id='gameImage' src=".$imagePath." />";
+						?>
+					</div>
+					
+					<div id="gameTitlePart">
+						<?php echo "<h1 id='gameTitleForm'>".$gameObj->gameTitle."</h1>"; ?>
+					</div>
+					
+					<div id="minReqPart">
+						<b> Minimum Requirements : </b> <br /><br />
+						<?php echo $gameObj->minReq;?>
+					</div>
+					
+					<div id="maxReqPart">
+						<b> Maximum Requirements : </b> <br /><br />
+						<?php echo $gameObj->maxReq;?>
+					</div>
+
 				</div>
 			</div>
 			

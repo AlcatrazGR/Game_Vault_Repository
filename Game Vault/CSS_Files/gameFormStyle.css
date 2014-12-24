@@ -1,0 +1,83 @@
+
+/*
+#gameFormTable{
+	padding: 15px;
+	color: white;
+	font-family: Times New Roman, Georgia, Serif;
+	width: 920px;
+	
+	border: 3px solid;
+}
+
+#gameImage{
+	width: 250;
+	height: 330;
+	border: 5px solid;
+    border-radius: 25px;
+	border-color: #333;
+	position: relative;
+}
+#gameTitleForm{
+	font-size: 35px;
+	text-align: right;
+	margin-top: 0px;
+}
+*/
+#main_game_form{
+	color: white;
+}
+
+#gameImagePart{
+	border: 2px solid;
+	border-color: white;
+	
+	width: 270;
+	height: 350;
+	float: left;
+}
+
+#gameTitlePart{
+	border: 2px solid;
+	border-color: white;
+	
+	width: 620px;
+	height: 50px;
+	float: right;
+}
+
+#minReqPart{
+	border: 2px solid;
+	border-color: white;
+	
+	width: 295px;
+	height: 276px;
+	float: right;
+	padding: 10px;
+	font-size: 18px;
+}
+
+#maxReqPart{
+	border: 2px solid;
+	border-color: white;
+	
+	width: 295px;
+	height: 276px;
+	float: left;
+	padding: 10px;
+	font-size: 18px;
+}
+
+#gameImage{
+	width: 250;
+	height: 330;
+	border: 5px solid;
+    border-radius: 25px;
+	border-color: #333;
+	position: relative;
+}
+
+#gameTitleForm{
+	font-size: 35px;
+	text-align: center;
+	margin-top: 0px;
+}
