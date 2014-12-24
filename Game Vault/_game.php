@@ -10,8 +10,9 @@
 		<link rel="stylesheet" type="text/css" href="CSS_Files/indexStyle.css"></link>
 
 	</head>
-		<body background="Images/PageStyle/background.jpg">
-			<!--Container Start-->
+	<body background="Images/PageStyle/background.jpg">
+		
+		<!--Container Start-->
 		<div id='container'>
 		
 			<!--Header Part-->
@@ -58,19 +59,17 @@
 			
 			<div id="content_area">
 				<div id="main_game_form">
+					<?php
+						
 					
+					
+					
+					?>
 				</div>
 			</div>
 			
 			<!--Footer Part-->
 			<div id="footer"> Footer </div>
 		</div>
-		</body>
-	<html>
-
-<?php
-	
-
-
-
-?>
+	</body>
+<html>

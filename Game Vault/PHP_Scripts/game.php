@@ -108,7 +108,9 @@
 				return $results;
 			}
 			else{
-			
+				$query = "SELECT GAME_TITLE,PLATFORM,CATEGORY FROM games WHERE ((PLATFORM = '".$platform."') && (CATEGORY = '".$category."'))";
+				$results = mysql_query($query);
+				return $results;
 			}
 		
 		}
