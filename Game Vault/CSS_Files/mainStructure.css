@@ -43,8 +43,19 @@
 	position: relative;
 	z-index: -1;
 }
+
 #main_contentPC{
 	width: 700px !important;
+}
+
+#main_game_form{
+	height: 100%;
+	
+	background-color: black;
+    border: 1px solid black;
+    opacity: 0.85;
+	position: relative;
+	z-index: -1;
 }
 
 #greetings{
