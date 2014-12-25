@@ -28,10 +28,13 @@
 #main_contentPC a{
 	font-size: 21px;
 }
+
 #main_contentPC a:hover, a:focus, a:active { 
 	text-decoration: underline; 
 	color: darkorange;
-	text-shadow: -1px 1px 2px #ffc, 1px -1px 8px white;
+}
+#main_contentPC  tr:hover {
+	color: darkorange;
 }
 
 #login{
@@ -42,6 +45,25 @@
 	color: darkorange;
 }
 
+#rightColPc{
+	border-top: 2px solid;
+	border-top-color: darkorange;
+	color: darkorange;
+	font-size: 21px;
+	
+}
+
+#sortByGenre{
+	margin-left: 20px;
+	margin-top: 20px;
+}
+#sortByGenre a {
+	text-decoration: none;	
+	color: white;
+}
+#sortByGenre a:hover{
+	color: darkorange;
+}
 #gameList {
 	color: white;
 	border-radius: 13px;
@@ -50,7 +72,6 @@
 	font-size: 18px;
 	border-color: #333;
 	border-spacing: 0;
-
 }
 
 #gameList tr td{

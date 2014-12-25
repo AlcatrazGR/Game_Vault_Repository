@@ -77,7 +77,6 @@
 						- <a href="pcGames.php?sort=R"> R </a> - <a href="pcGames.php?sort=S"> S </a> - <a href="pcGames.php?sort=T"> T </a> 
 						- <a href="pcGames.php?sort=U"> U </a> - <a href="pcGames.php?sort=V"> V </a> - <a href="pcGames.php?sort=W"> W </a>
 						- <a href="pcGames.php?sort=X"> X </a> - <a href="pcGames.php?sort=Y"> Y </a> - <a href="pcGames.php?sort=Z"> Z </a>
-				
 						<br /> <br />
 					
 						<table id="gameList">
@@ -114,6 +113,21 @@
 							?>
 						</table>
 					</center>
+				</div>
+				
+				<div id="rightColPc">
+					<p id="sortByGenre">	
+						<b> Sort By Genre : </b> <br /> <br />
+						<a href="#"> Role - Playing </a> <br />
+						<a href="#"> Action </a> <br />
+						<a href="#"> Action - Adventure </a> <br />
+						<a href="#"> Adventure  </a> <br />
+						<a href="#"> Simulation </a> <br />
+						<a href="#"> Strategy </a> <br />
+						<a href="#"> Sports </a> <br />
+						<a href="#"> MMO RPG </a> <br />
+						<a href="#"> MMO RTS </a> <br />
+					</p>
 				</div>
 				
 			</div>
