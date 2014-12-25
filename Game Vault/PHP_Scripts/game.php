@@ -127,6 +127,12 @@
 			}
 		}
 		
+		public function getGamesSortedByGameTitle($platform, $category, $sortingLetter){
+			$query = "SELECT * FROM games WHERE ((PLATFORM = '".$platform."') AND (GAME_TITLE LIKE '".$sortingLetter."%'))";
+			$results = mysql_query($query);
+			return $results;
+		}
+		
 	
 	}
 

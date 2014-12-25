@@ -68,13 +68,15 @@
 				<div id="main_contentPC">
 					<br />
 					<center>
-						<a href="#"> # </a> - <a href="#"> A </a> - <a href="#"> B </a> - <a href="#"> C </a>
-						- <a href="#"> D </a> - <a href="#"> E </a> - <a href="#"> F </a> - <a href="#"> G </a>
-						- <a href="#"> H </a> - <a href="#"> I </a> - <a href="#"> J </a> - <a href="#"> K </a>
-						- <a href="#"> L </a> - <a href="#"> M </a> - <a href="#"> N </a> - <a href="#"> O </a>
-						- <a href="#"> P </a> - <a href="#"> Q </a> - <a href="#"> R </a> - <a href="#"> S </a>
-						- <a href="#"> T </a> - <a href="#"> U </a> - <a href="#"> V </a> - <a href="#"> W </a>
-						- <a href="#"> X </a> - <a href="#"> Y </a> - <a href="#"> Z </a>
+						<a href="pcGames.php?sort=#"> # </a> - <a href="pcGames.php?sort=A"> A </a> - <a href="pcGames.php?sort=B"> B </a>
+						- <a href="pcGames.php?sort=C"> C </a> - <a href="pcGames.php?sort=D"> D </a> - <a href="pcGames.php?sort=E"> E </a> 
+						- <a href="pcGames.php?sort=F"> F </a> - <a href="pcGames.php?sort=G"> G </a> - <a href="pcGames.php?sort=H"> H </a> 
+						- <a href="pcGames.php?sort=I"> I </a> - <a href="pcGames.php?sort=J"> J </a> - <a href="pcGames.php?sort=K"> K </a>
+						- <a href="pcGames.php?sort=L"> L </a> - <a href="pcGames.php?sort=M"> M </a> - <a href="pcGames.php?sort=N"> N </a> 
+						- <a href="pcGames.php?sort=O"> O </a> - <a href="pcGames.php?sort=P"> P </a> - <a href="pcGames.php?sort=Q"> Q </a> 
+						- <a href="pcGames.php?sort=R"> R </a> - <a href="pcGames.php?sort=S"> S </a> - <a href="pcGames.php?sort=T"> T </a> 
+						- <a href="pcGames.php?sort=U"> U </a> - <a href="pcGames.php?sort=V"> V </a> - <a href="pcGames.php?sort=W"> W </a>
+						- <a href="pcGames.php?sort=X"> X </a> - <a href="pcGames.php?sort=Y"> Y </a> - <a href="pcGames.php?sort=Z"> Z </a>
 				
 						<br /> <br />
 					
@@ -87,14 +89,27 @@
 							<?php
 								require("PHP_Scripts/game.php");
 								$gameObj = new game();
-								$results = $gameObj->getGamesList("pc", "All");
 								
-								while($row = mysql_fetch_array($results)){
-									echo "<tr>
+								
+								if((!isset($_GET['sort'])) || ($_GET['sort'] == '#')){
+									$results = $gameObj->getGamesList("pc", "All");
+									while($row = mysql_fetch_array($results)){
+										echo "<tr>
 											<td> <a href='_game.php?title=".$row["GAME_TITLE"]."&platform=".$row["PLATFORM"]."'>".$row["GAME_TITLE"]."</a> </td> 
 											<td> ".$row["PLATFORM"]." </td>
 											<td> ".$row["CATEGORY"]." </td>
-										 </tr>";
+											</tr>";
+									}
+								}
+								else{
+									$results = $gameObj->getGamesSortedByGameTitle("pc", "All", $_GET['sort']);
+									while($row = mysql_fetch_array($results)){
+										echo "<tr>
+											<td> <a href='_game.php?title=".$row["GAME_TITLE"]."&platform=".$row["PLATFORM"]."'>".$row["GAME_TITLE"]."</a> </td> 
+											<td> ".$row["PLATFORM"]." </td>
+											<td> ".$row["CATEGORY"]." </td>
+											</tr>";
+									}
 								}
 							?>
 						</table>
