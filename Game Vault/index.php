@@ -25,6 +25,8 @@
 		<!--Initializing the css file for main style of the index-->
 		<link rel="stylesheet" type="text/css" href="CSS_Files/indexStyle.css"> </link>
 		
+		<link rel="stylesheet" type="text/css" href="CSS_Files/favorites.css"> </link>
+		
 		<script type="text/javascript">
 			function invisible(){
 				document.getElementById("adminlink").style.display="none";
@@ -271,7 +273,52 @@
 					</div>
 					
 					<div id="favorites">
-						<b> Favorites <b> <br />
+						<b> Favorites <b> <br /><br />
+						<?php
+							require("PHP_Scripts/game.php");
+							$gameObj = new game();
+							$favGames = $gameObj->getGamesBasedOnTheRating();
+	
+							$i=0;
+							while($row = mysql_fetch_array($favGames)){
+								if($i < 3){
+									$imgPath = "PHP_Scripts/Game/Images/".$row['IMAGE'];
+									echo "
+										<table id='favTable'>
+											<tr>
+												<td class='firstRow'> ".$row['GAME_TITLE']." </td>
+												<td rowspan='4'> <img id='favImg' src=".$imgPath."> </td>
+											</tr>
+												
+											<tr>
+												<td class='firstRow'> ".$row['PLATFORM']." </td>
+										
+											</tr>
+											
+											<tr>
+												<td class='firstRow'> ".$row['CATEGORY']." </td>
+											
+											</tr>
+												
+											<tr>
+												<td class='firstRow'> ".$row['RATE']." </td>
+											
+											</tr>
+										</table>
+										<br />
+									";
+								}
+								else{
+									break;
+								}
+							}
+							
+							/*
+							for($i=0; $i<sizeof($favGames); $i++){
+								echo $favGames[$i];
+							}
+							*/
+						?>
 					</div>
 					</div>
 				</div>

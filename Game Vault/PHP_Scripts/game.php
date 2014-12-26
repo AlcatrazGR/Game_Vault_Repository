@@ -132,10 +132,36 @@
 		public function getGamesSortedByGameTitle($platform, $category, $sortingLetter){
 			$query = "SELECT * FROM games WHERE ((PLATFORM = '".$platform."') AND (GAME_TITLE LIKE '".$sortingLetter."%'))";
 			$results = mysql_query($query);
-			return $results;
-			
+			return $results;	
 		}
 		
+		//Return all the games which rating was 4 or 5 stars.
+		public function getGamesBasedOnTheRating(){
+			$query = "SELECT ratings.GAME_TITLE, games.GAME_TITLE, games.IMAGE, games.PLATFORM, games.CATEGORY, ratings.RATE
+				FROM games, ratings WHERE ( (ratings.GAME_TITLE = games.GAME_TITLE) AND (ratings.RATE >= 4) );";
+			$results = mysql_query($query);
+			return $results;
+			/*
+			$query1= "SELECT GAME_TITLE, IMAGE, PLATFORM, CATEGORY FROM games";
+			$results1 = mysql_query($query1);
+			
+			$query2= "SELECT * FROM ratings";
+			$results2 = mysql_query($query2);
+			
+			$i = 0;
+			$dataArray = array();
+			while($row1 = mysql_fetch_array($results1)){
+				while($row2 = mysql_fetch_array($results2)){
+					if(($row1['GAME_TITLE'] == $row2['GAME_TITLE']) && ($row2['RATE'] >= 4)){
+						$dataArray[$i] = $row1['GAME_TITLE']."/".$row1['PLATFORM']."/".$row1['CATEGORY']."/".$row2['RATE'];
+						$i++;
+					}
+				}
+			}
+			
+			return $dataArray;
+			*/
+		}
 	
 	}
 

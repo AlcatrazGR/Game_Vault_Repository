@@ -1,0 +1,19 @@
+#favTable{
+	border: 1px solid;
+	border-width: 3px;
+	border-radius: 10px;
+	color: white;
+	border-color: #333;
+}
+
+.firstRow{
+	width: 1000px;
+	border: 1px solid;
+	border-color: grey;
+}
+
+
+#favImg{
+	width: 120px;
+	height: 160px;
+}

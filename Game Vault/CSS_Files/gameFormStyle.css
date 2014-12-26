@@ -69,7 +69,11 @@
 #footerPC{
 	color: white;
 }
+#ratingBtn{
+	margin: 6px;
+}
 
+/*---------------- Game Rating Part -----------------------*/
 .rating {
     float:right;
 }

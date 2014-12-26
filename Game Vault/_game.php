@@ -139,22 +139,6 @@
 					<input id="ratingBtn" type="submit" name="submit" value="Submit Rating"/>
 				</form>
 
-				<!--
-				<a href=""> <img class="rate" src="Images/PageStyle/star.gif" /> </a>
-				<a href=""> <img class="rate" src="Images/PageStyle/star.gif" /> </a>
-				<a href=""> <img class="rate" src="Images/PageStyle/star.gif" /> </a>
-				<a href=""> <img class="rate" src="Images/PageStyle/star.gif" /> </a>
-				<a href=""> <img class="rate" src="Images/PageStyle/star.gif" /> </a>
-
-				<span class="star-rating">
-					<input type="radio" name="rating" value="1"><i></i>
-					<input type="radio" name="rating" value="2"><i></i>
-					<input type="radio" name="rating" value="3"><i></i>
-					<input type="radio" name="rating" value="4"><i></i>
-					<input type="radio" name="rating" value="5"><i></i>
-				</span>
-				-->
-				
 			</div>
 		</div>
 	</body>

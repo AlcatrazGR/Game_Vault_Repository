@@ -34,24 +34,24 @@
 					
 					echo "The rate has been submited successfully into the database <br />
 						You will be redirected to the game page in short time...";
-					header( "refresh:0.5;url=../_game.php" );
+					header( "refresh:3;url=../index.php" );
 				}
 				else{
 					echo "You have already voted for this game! <br />
 						You will be redirected back shortly ...";
-					header( "refresh:0.5;url=../_game.php" );
+					header( "refresh:3;url=../index.php" );
 				}
 			}
 			else{
 				echo "You are not logged in! <br />
 					You will be redirected back shortly ...";
-				header( "refresh:0.5;url=../_game.php" );
+				header( "refresh:3;url=../index.php" );
 			}
 		}
 		else{
 			echo "You havent rated the game <br />
 				You will be redirected back shortly ...";
-			header( "refresh:0.5;url=../_game.php" );
+			header( "refresh:3;url=../index.php" );
 		}
 	}
 	
