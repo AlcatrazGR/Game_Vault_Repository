@@ -119,5 +119,12 @@
 	float:left;
 	height: 25px;
 }
+#footerPC{
+	background-color: #333;
+	border-top: 1px solid #c7c7c7;
+	width:950px;
+	float:left;
+	height: 35px;
+}
 
 

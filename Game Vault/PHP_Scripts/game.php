@@ -127,10 +127,13 @@
 			}
 		}
 		
+		//Returns the games sorted by the platform of the game, its genre and by the sorting letter
+		//the user selected.
 		public function getGamesSortedByGameTitle($platform, $category, $sortingLetter){
 			$query = "SELECT * FROM games WHERE ((PLATFORM = '".$platform."') AND (GAME_TITLE LIKE '".$sortingLetter."%'))";
 			$results = mysql_query($query);
 			return $results;
+			
 		}
 		
 	

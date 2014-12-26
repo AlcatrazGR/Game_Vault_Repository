@@ -90,7 +90,7 @@
 								$gameObj = new game();
 								
 								
-								if((!isset($_GET['sort'])) || ($_GET['sort'] == '#')){
+								if((!isset($_GET['sort'])) || ($_GET['sort'] == '#') && (!isset($_GET['categ']))){
 									$results = $gameObj->getGamesList("pc", "All");
 									while($row = mysql_fetch_array($results)){
 										echo "<tr>
@@ -100,7 +100,7 @@
 											</tr>";
 									}
 								}
-								else{
+								else if((isset($_GET['sort'])) && ((!isset($_GET['categ'])))){
 									$results = $gameObj->getGamesSortedByGameTitle("pc", "All", $_GET['sort']);
 									while($row = mysql_fetch_array($results)){
 										echo "<tr>
@@ -110,6 +110,21 @@
 											</tr>";
 									}
 								}
+								
+		
+								
+								/*
+								if((isset($_GET['categ'])) && (!isset($_GET['sort']))){
+									$results = $gameObj->getGamesSortedByCategoryAndPlatform("pc", $_GET['categ']);
+									while($row = mysql_fetch_array($results)){
+										echo "<tr>
+										<td> <a href='_game.php?title=".$row["GAME_TITLE"]."&platform=".$row["PLATFORM"]."'>".$row["GAME_TITLE"]."</a> </td> 
+										<td> ".$row["PLATFORM"]." </td>
+										<td> ".$row["CATEGORY"]." </td>
+										</tr>";
+									}
+								}
+								*/
 							?>
 						</table>
 					</center>
@@ -118,16 +133,33 @@
 				<div id="rightColPc">
 					<p id="sortByGenre">	
 						<b> Sort By Genre : </b> <br /> <br />
-						<a href="#"> Role - Playing </a> <br />
-						<a href="#"> Action </a> <br />
-						<a href="#"> Action - Adventure </a> <br />
-						<a href="#"> Adventure  </a> <br />
-						<a href="#"> Simulation </a> <br />
-						<a href="#"> Strategy </a> <br />
-						<a href="#"> Sports </a> <br />
-						<a href="#"> MMO RPG </a> <br />
-						<a href="#"> MMO RTS </a> <br />
+						<a href="pcGames.php?categ=roleplaying"> Role - Playing </a> <br />
+						<a href="pcGames.php?categ=action"> Action </a> <br />
+						<a href="pcGames.php?categ=actionadventure"> Action - Adventure </a> <br />
+						<a href="pcGames.php?categ=adventure"> Adventure  </a> <br />
+						<a href="pcGames.php?categ=simulation"> Simulation </a> <br />
+						<a href="pcGames.php?categ=strategy"> Strategy </a> <br />
+						<a href="pcGames.php?categ=sports"> Sports </a> <br />
+						<a href="pcGames.php?categ=mmorpg"> MMO RPG </a> <br />
+						<a href="pcGames.php?categ=mmorts"> MMO RTS </a> <br />
 					</p>
+					
+					<?php 
+						/*
+						if((isset($_GET['categ'])) && (!isset($_SESSION["sortingLetter"]))){
+							$results = $gameObj->getGamesSortedByCategoryAndPlatform("pc", $_GET['categ']);
+							
+							while($row = mysql_fetch_array($results)){
+								echo "<tr>
+									<td> <a href='_game.php?title=".$row["GAME_TITLE"]."&platform=".$row["PLATFORM"]."'>".$row["GAME_TITLE"]."</a> </td> 
+									<td> ".$row["PLATFORM"]." </td>
+									<td> ".$row["CATEGORY"]." </td>
+									</tr>";
+							}
+						}
+						*/
+					?>
+					
 				</div>
 				
 			</div>

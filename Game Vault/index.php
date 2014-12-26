@@ -1,4 +1,14 @@
-	<html>
+<?php
+	if(isset($_GET['status'])){
+		if((isset($_COOKIE['user']))){
+			setcookie("user", "", time() - 3600);
+		}
+		else if(isset($_COOKIE['admin'])){
+			setcookie("admin", "", time() - 3600);
+		}
+	}
+?>
+<html>
 	<head>
 		<title> Game Vault </title>
 		<meta charset='UTF-8'>
@@ -214,7 +224,7 @@
 							echo $usname;
 						?>
 						
-						<a id="logOutLink" href="javascript:logOutProcess();"> Log Out </a>
+						<a id="logOutLink" href="index.php?status=logout"> Log Out </a>
 						
 						
 					</div>
