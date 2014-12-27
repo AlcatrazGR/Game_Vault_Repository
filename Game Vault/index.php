@@ -225,8 +225,6 @@
 						?>
 						
 						<a id="logOutLink" href="index.php?status=logout"> Log Out </a>
-						
-						
 					</div>
 					<p>
 						<h2> Welcome to <u> Guild Vault</u> ! </h2>
@@ -241,7 +239,7 @@
 						
 						<img class="introIcons" src="Images/PageStyle/icon4.gif" />
 						Browse your favorite games through a wide variety of gaming platforms,
-						such as : <a href="#"> PC </a> - <a href=""> Playstation 4 </a> -
+						such as : <a href="pcGames.php"> PC </a> - <a href=""> Playstation 4 </a> -
 						<a href="#"> XBOX One </a> - <a href="#"> Wii U </a> and more, 
 						or by the category of the game. <br /> <br /> <br /> 
 						 
@@ -282,6 +280,11 @@
 								$rndNum = rand(0,9);
 								if(($i < 3) && ($rndNum > 3)){
 									$imgPath = "PHP_Scripts/Game/Images/".$row['IMAGE'];
+									if($row['RATE'] == 4)
+										$starImgRate = "Images/PageStyle/4star.gif";
+									else
+										$starImgRate = "Images/PageStyle/5star.gif";
+										
 									echo "
 										<table id='favTable'>
 											<tr>
@@ -304,7 +307,7 @@
 											</tr>
 												
 											<tr>
-												<td class='firstRow'> ".$row['RATE']." </td>
+												<td class='firstRow'> <img id='rateStars' src=".$starImgRate."> </td>
 											
 											</tr>
 										</table>
