@@ -281,7 +281,8 @@
 	
 							$i=0;
 							while($row = mysql_fetch_array($favGames)){
-								if($i < 3){
+								$rndNum = rand(0,9);
+								if(($i < 3) && ($rndNum > 3)){
 									$imgPath = "PHP_Scripts/Game/Images/".$row['IMAGE'];
 									echo "
 										<table id='favTable'>
@@ -307,17 +308,10 @@
 										</table>
 										<br />
 									";
-								}
-								else{
-									break;
+									$i++;
 								}
 							}
-							
-							/*
-							for($i=0; $i<sizeof($favGames); $i++){
-								echo $favGames[$i];
-							}
-							*/
+
 						?>
 					</div>
 					</div>
