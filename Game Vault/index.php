@@ -1,12 +1,22 @@
 <?php
 	if(isset($_GET['status'])){
 		if((isset($_COOKIE['user']))){
-			setcookie("user", "", time() - 3600);
+			setcookie("user", "", time() - 3600, '/');
+			header( "refresh:1;url=index.php" );
 		}
 		else if(isset($_COOKIE['admin'])){
-			setcookie("admin", "", time() - 3600);
+			setcookie("admin", "", time() - 3600, '/');
+			header( "refresh:1;url=index.php" );
+		}
+		else{
+			?>
+				<script type='text/javascript'>  
+					alert('In order to logout you must first be logged in !');
+				</script>
+			<?php
 		}
 	}
+
 ?>
 <html>
 	<head>
@@ -26,36 +36,28 @@
 		<link rel="stylesheet" type="text/css" href="CSS_Files/indexStyle.css"> </link>
 		
 		<link rel="stylesheet" type="text/css" href="CSS_Files/favorites.css"> </link>
-		
+
 		<script type="text/javascript">
-			function invisible(){
-				document.getElementById("adminlink").style.display="none";
+			function invisibleAdminMenuItem(){
+				var myCookie = getCookie("admin");
 				
-				try{
-					var myCookie = getCookie("user");
-				}
-				catch{}
-				try{
-					var myCookie = getCookie("admin");
-				}
-				catch{}
-				
-				if(myCookie != null){
-					if(myCookie == "admin")
-						document.getElementById("adminlink").style.display="initial";
-				}
+				if (myCookie == null) {
+					document.getElementById("adminlink").style.display="none";
+				}	
 			}
 			
 			function getCookie(name) {
 				var dc = document.cookie;
 				var prefix = name + "=";
 				var begin = dc.indexOf("; " + prefix);
+				
 				if (begin == -1) {
 					begin = dc.indexOf(prefix);
 					if (begin != 0) 
 						return null;
 				}
-				else {
+				else
+				{
 					begin += 2;
 					var end = document.cookie.indexOf(";", begin);
 					if (end == -1) {
@@ -65,14 +67,10 @@
 				return unescape(dc.substring(begin + prefix.length, end));
 			} 
 			
-			function logOutProcess(){
-				
-			}
-			
 		</script>
 		
 	</head>
-	<body background="Images/PageStyle/background.jpg" onload="invisible()">
+	<body background="Images/PageStyle/background.jpg" onload="invisibleAdminMenuItem()">
 		
 		<!--Container Start-->
 		<div id='container'>
@@ -288,7 +286,11 @@
 										<table id='favTable'>
 											<tr>
 												<td class='firstRow'> ".$row['GAME_TITLE']." </td>
-												<td rowspan='4'> <img id='favImg' src=".$imgPath."> </td>
+												<td rowspan='4'>
+													<a href='_game.php?title=".$row['GAME_TITLE']."&platform=".$row['PLATFORM']."'>
+														<img id='favImg' src=".$imgPath."> 
+													</a>
+												</td>
 											</tr>
 												
 											<tr>
