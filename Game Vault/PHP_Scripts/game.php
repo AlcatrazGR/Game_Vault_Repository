@@ -102,16 +102,9 @@
 		//in database. The two parametres are used to define the machine that the 
 		//games are working and the their category.
 		public function getGamesList($platform, $category){
-			if($category == "All"){
-				$query = "SELECT GAME_TITLE,PLATFORM,CATEGORY FROM games WHERE PLATFORM = '".$platform."'";
-				$results = mysql_query($query);
-				return $results;
-			}
-			else{
-				$query = "SELECT GAME_TITLE,PLATFORM,CATEGORY FROM games WHERE ((PLATFORM = '".$platform."') && (CATEGORY = '".$category."'))";
-				$results = mysql_query($query);
-				return $results;
-			}
+			$query = "SELECT GAME_TITLE,PLATFORM,CATEGORY FROM games WHERE PLATFORM = '".$platform."'";
+			$results = mysql_query($query);
+			return $results;
 		}
 		
 		public function getGamesSortedByCategoryAndPlatform($platform, $category){
@@ -126,13 +119,20 @@
 				return $results;
 			}
 		}
-		
+
 		//Returns the games sorted by the platform of the game, its genre and by the sorting letter
 		//the user selected.
 		public function getGamesSortedByGameTitle($platform, $category, $sortingLetter){
-			$query = "SELECT * FROM games WHERE ((PLATFORM = '".$platform."') AND (GAME_TITLE LIKE '".$sortingLetter."%'))";
-			$results = mysql_query($query);
-			return $results;	
+			if(($category == 'All') && ($sortingLetter != "")){
+				$query = "SELECT * FROM games WHERE ((PLATFORM = '".$platform."') AND (GAME_TITLE LIKE '".$sortingLetter."%'))";
+				$results = mysql_query($query);
+				return $results;
+			}	
+			else if(($category != 'All') && ($sortingLetter != "")){
+				$query = "SELECT * FROM games WHERE ((PLATFORM = '".$platform."') AND (GAME_TITLE LIKE '".$sortingLetter."%') AND (CATEGORY = '".$category."'))";
+				$results = mysql_query($query);
+				return $results;
+			}
 		}
 		
 		//Return all the games which rating was 4 or 5 stars.

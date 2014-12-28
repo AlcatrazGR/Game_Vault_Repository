@@ -68,7 +68,7 @@
 				<div id="main_contentPC">
 					<br />
 					<center>
-						<a href="pcGames.php?sort=#"> # </a> - <a href="pcGames.php?sort=A"> A </a> - <a href="pcGames.php?sort=B"> B </a>
+						<a href="pcGames.php?sort=All"> # </a> - <a href="pcGames.php?sort=A"> A </a> - <a href="pcGames.php?sort=B"> B </a>
 						- <a href="pcGames.php?sort=C"> C </a> - <a href="pcGames.php?sort=D"> D </a> - <a href="pcGames.php?sort=E"> E </a> 
 						- <a href="pcGames.php?sort=F"> F </a> - <a href="pcGames.php?sort=G"> G </a> - <a href="pcGames.php?sort=H"> H </a> 
 						- <a href="pcGames.php?sort=I"> I </a> - <a href="pcGames.php?sort=J"> J </a> - <a href="pcGames.php?sort=K"> K </a>
@@ -89,8 +89,20 @@
 								require("PHP_Scripts/game.php");
 								$gameObj = new game();
 								
+								$sortLetter = null;
+								$sortCateg = null;
 								
-								if((!isset($_GET['sort'])) || ($_GET['sort'] == '#') && (!isset($_GET['categ']))){
+								if(isset($_GET['categ']))
+									$sortCateg = $_GET['categ'];
+								if(isset($_GET['sort'])){
+									echo "sort is setted";
+									$sortLetter = $_GET['sort'];
+								}
+								
+								echo " Sorting Cate : ".$sortCateg." <br />";
+								echo " Sorting Let : ".$sortLetter."<br />";
+								
+								if((!isset($sortLetter)) && (!isset($sortCateg))){
 									$results = $gameObj->getGamesList("pc", "All");
 									while($row = mysql_fetch_array($results)){
 										echo "<tr>
@@ -100,8 +112,30 @@
 											</tr>";
 									}
 								}
-								else if((isset($_GET['sort'])) && ((!isset($_GET['categ'])))){
-									$results = $gameObj->getGamesSortedByGameTitle("pc", "All", $_GET['sort']);
+								else if((isset($sortLetter)) && (!isset($sortCateg))){
+									if($sortLetter == 'All'){
+										$results = $gameObj->getGamesList("pc", "All");
+										while($row = mysql_fetch_array($results)){
+											echo "<tr>
+												<td> <a href='_game.php?title=".$row["GAME_TITLE"]."&platform=".$row["PLATFORM"]."'>".$row["GAME_TITLE"]."</a> </td> 
+												<td> ".$row["PLATFORM"]." </td>
+												<td> ".$row["CATEGORY"]." </td>
+												</tr>";
+										}
+									}
+									else{
+										$results = $gameObj->getGamesSortedByGameTitle("pc", "All", $_GET['sort']);
+										while($row = mysql_fetch_array($results)){
+											echo "<tr>
+												<td> <a href='_game.php?title=".$row["GAME_TITLE"]."&platform=".$row["PLATFORM"]."'>".$row["GAME_TITLE"]."</a> </td> 
+												<td> ".$row["PLATFORM"]." </td>
+												<td> ".$row["CATEGORY"]." </td>
+												</tr>";
+										}
+									}
+								}
+								else if((!isset($sortLetter)) && (isset($sortCateg))){
+									$results = $gameObj->getGamesSortedByCategoryAndPlatform("pc", $sortCateg);
 									while($row = mysql_fetch_array($results)){
 										echo "<tr>
 											<td> <a href='_game.php?title=".$row["GAME_TITLE"]."&platform=".$row["PLATFORM"]."'>".$row["GAME_TITLE"]."</a> </td> 
@@ -110,21 +144,6 @@
 											</tr>";
 									}
 								}
-								
-		
-								
-								/*
-								if((isset($_GET['categ'])) && (!isset($_GET['sort']))){
-									$results = $gameObj->getGamesSortedByCategoryAndPlatform("pc", $_GET['categ']);
-									while($row = mysql_fetch_array($results)){
-										echo "<tr>
-										<td> <a href='_game.php?title=".$row["GAME_TITLE"]."&platform=".$row["PLATFORM"]."'>".$row["GAME_TITLE"]."</a> </td> 
-										<td> ".$row["PLATFORM"]." </td>
-										<td> ".$row["CATEGORY"]." </td>
-										</tr>";
-									}
-								}
-								*/
 							?>
 						</table>
 					</center>
@@ -143,22 +162,6 @@
 						<a href="pcGames.php?categ=mmorpg"> MMO RPG </a> <br />
 						<a href="pcGames.php?categ=mmorts"> MMO RTS </a> <br />
 					</p>
-					
-					<?php 
-						/*
-						if((isset($_GET['categ'])) && (!isset($_SESSION["sortingLetter"]))){
-							$results = $gameObj->getGamesSortedByCategoryAndPlatform("pc", $_GET['categ']);
-							
-							while($row = mysql_fetch_array($results)){
-								echo "<tr>
-									<td> <a href='_game.php?title=".$row["GAME_TITLE"]."&platform=".$row["PLATFORM"]."'>".$row["GAME_TITLE"]."</a> </td> 
-									<td> ".$row["PLATFORM"]." </td>
-									<td> ".$row["CATEGORY"]." </td>
-									</tr>";
-							}
-						}
-						*/
-					?>
 					
 				</div>
 				
