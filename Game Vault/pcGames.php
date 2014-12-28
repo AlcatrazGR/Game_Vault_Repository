@@ -25,7 +25,7 @@
 			<!--Header Part-->
 			<div id="header">
 				<div id="logo"> <img id="logoImg" src="Images/PageStyle/logo.gif"> </div>
-				<div id="banner"> <img id="bannerImg" src="Images/PageStyle/Banner.jpg"> </div>
+				<div id="banner"> <img id="bannerImg" src="Images/PageStyle/Banner.gif"> </div>
 			</div>
 			
 			<!--Menu Part-->
@@ -95,13 +95,9 @@
 								if(isset($_GET['categ']))
 									$sortCateg = $_GET['categ'];
 								if(isset($_GET['sort'])){
-									echo "sort is setted";
 									$sortLetter = $_GET['sort'];
 								}
-								
-								echo " Sorting Cate : ".$sortCateg." <br />";
-								echo " Sorting Let : ".$sortLetter."<br />";
-								
+
 								if((!isset($sortLetter)) && (!isset($sortCateg))){
 									$results = $gameObj->getGamesList("pc", "All");
 									while($row = mysql_fetch_array($results)){
@@ -162,9 +158,7 @@
 						<a href="pcGames.php?categ=mmorpg"> MMO RPG </a> <br />
 						<a href="pcGames.php?categ=mmorts"> MMO RTS </a> <br />
 					</p>
-					
 				</div>
-				
 			</div>
 			
 			<!--Footer Part-->

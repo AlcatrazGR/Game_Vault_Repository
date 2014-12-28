@@ -3,11 +3,12 @@
 }
 
 #bannerImg{
-	margin-bottom:160px;
+	background: #101010;
 }
 #logoImg{
 	width: 100px;
 	height: 100px;
+	background: #101010;
 }
 
 #cssmenu span{

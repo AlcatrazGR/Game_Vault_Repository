@@ -20,7 +20,7 @@
 			<!--Header Part-->
 			<div id="header">
 				<div id="logo"> <img id="logoImg" src="Images/PageStyle/logo.gif"> </div>
-				<div id="banner"> <img id="bannerImg" src="Images/PageStyle/Banner.jpg"> </div>
+				<div id="banner"> <img id="bannerImg" src="Images/PageStyle/Banner.gif"> </div>
 			</div>
 			
 			<!--Menu Part-->
