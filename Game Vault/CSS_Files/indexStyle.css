@@ -28,6 +28,7 @@
 
 #main_contentPC a{
 	font-size: 21px;
+	text-decoration:none;
 }
 
 #main_contentPC a:hover, a:focus, a:active { 
@@ -83,13 +84,15 @@
 	color: darkorange;
 	border-top: 1px solid;
 }
-
 .introIcons {
 	float: left;
 	margin: 10px;
 }
+#gameList tr:nth-child(even) {
+    background-color: #101010;
+}
 
-/* Slide Show CSS Region*/
+/*----------------------- Slide Show CSS Region ---------------------*/
 .slides {
     padding: 0;
     width: 950px;
