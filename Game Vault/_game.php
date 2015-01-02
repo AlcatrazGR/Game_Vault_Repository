@@ -116,11 +116,9 @@
 								</center>
 							";
 						?>
-					</div>
-					
+					</div>	
 				</div>
 			</div>
-			
 			<!--Footer Part-->
 			<div id="footerPC"> 
 				<form  action="PHP_Scripts/gameRating.php?title=<?php echo $gameObj->gameTitle; ?>" method="POST" enctype="multipart/form-data" >
