@@ -16,7 +16,6 @@
 			<?php
 		}
 	}
-
 ?>
 <html>
 	<head>
@@ -34,7 +33,7 @@
 		<link rel="stylesheet" type="text/css" href="CSS_Files/styles.css"> </link>
 		<!--Initializing the css file for main style of the index-->
 		<link rel="stylesheet" type="text/css" href="CSS_Files/indexStyle.css"> </link>
-		
+		<!--Initializing the css file for the favorite column of the index-->
 		<link rel="stylesheet" type="text/css" href="CSS_Files/favorites.css"> </link>
 
 		<script type="text/javascript">
@@ -298,17 +297,14 @@
 												
 											<tr>
 												<td class='firstRow'> ".$row['PLATFORM']." </td>
-										
 											</tr>
 											
 											<tr>
 												<td class='firstRow'> ".$row['CATEGORY']." </td>
-											
 											</tr>
 												
 											<tr>
 												<td class='firstRow'> <img id='rateStars' src=".$starImgRate."> </td>
-											
 											</tr>
 										</table>
 										<br />
@@ -316,7 +312,6 @@
 									$i++;
 								}
 							}
-
 						?>
 					</div>
 					</div>

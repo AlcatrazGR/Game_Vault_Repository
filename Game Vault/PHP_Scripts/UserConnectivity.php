@@ -26,7 +26,7 @@
 				$this->acname = $_COOKIE["admin"];
 				$this->acType = "admin";
 			}
-			
+
 			return $check;
 		}
 		
@@ -48,6 +48,7 @@
 		//Sets a session cookie, in case the check box 
 		//'remember me' is not set.
 		public function setSessionCookie(){
+		
 			$expires = time()+0;
 			$value = $this->acname;
 			
@@ -59,6 +60,7 @@
 				$name = "user";
 				setcookie($name, $value, $expires, '/');
 			}
+	
 		}
 	
 		//Returns the account name if there is a cookie
