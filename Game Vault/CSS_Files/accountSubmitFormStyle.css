@@ -1,0 +1,11 @@
+#formAccountTable{
+	color: white;
+	padding: 50px;
+	font-size: 19px;
+	border-spacing: 16px;
+	font-family: Verdana, serif, Arial;
+}
+
+#accountSubmissionTitle{
+	font-size: 30px !important; 
+}
