@@ -1,15 +1,7 @@
-
 <?php
-
-		echo "good job";
-
-
-/*
-	require("account.php");
-	
 	//Array with all the names of the components that must be filled
 	//in the form
-	$requiredFields = array('username', 'password', 'repassword', 'emailService', 'sex', 'date', 'month', 'year');
+	$requiredFields = array('username', 'password', 'repassword', 'email', 'emailService', 'sex', 'date', 'month', 'year');
 	
 	//sets an error flag and passes all the above array checking if
 	//any of the fields are empty.
@@ -18,27 +10,47 @@
 		if (empty($_POST[$field])) {
 			$error = true;
 		}
-	}	
+	}
 	
 	if($error){
-		die("You must first fill all the form fields");
+		echo "Error, empty field/s. Please check again the form data and fill all the required data.";
 	}
 	else{
+		$file = $_FILES['ImageToUpload'];
+		$file_name = $file['name'];
+		echo " ".$file_name;
+		/*
+		if(!empty($_POST['ImageToUpload'])){
+			//Gets the data from the filled form.
+			$username = $_POST['username'];
+			$password = $_POST['password'];
+			$rpassword = $_POST['repassword'];
 	
+			$emailDomain = $_POST['email'];
+			$emailService = $_POST['emailService'];
 	
-		//Gets the data from the filled form.
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		$rpassword = $_POST['repassword'];
+			$sexType = $_POST['sex'];
 	
-		$emailDomain = $_POST['email'];
-		$emailService = $_POST['emailService'];
+			$date = $_POST['date'];
+			$month = $_POST['month'];
+			$year = $_POST['year'];
+			
+			$accountObj = new account();
+			
+			
+			echo "".$imgAccount;
+			
+		}
+		else{
+			echo "No user image selected. Please submit an image for your profile.";
+		}
+		*/
+	
+	}
+	
+/*
 
-		$sexType = $_POST['sex'];
-	
-		$date = $_POST['date'];
-		$month = $_POST['month'];
-		$year = $_POST['year'];
+	else{
 
 		$accountDataArray = array($username, $password, $rpassword, $emailDomain);
 		$newAccountObj = new account();
