@@ -1,4 +1,10 @@
+
 <?php
+
+		echo "good job";
+
+
+/*
 	require("account.php");
 	
 	//Array with all the names of the components that must be filled
@@ -18,6 +24,8 @@
 		die("You must first fill all the form fields");
 	}
 	else{
+	
+	
 		//Gets the data from the filled form.
 		$username = $_POST['username'];
 		$password = $_POST['password'];
@@ -111,5 +119,5 @@
 
 		return $result;
 	}
-
+*/
 ?>

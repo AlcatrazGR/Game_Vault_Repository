@@ -58,6 +58,7 @@
 			}
 
 			function validUser(){   
+
 				var integMessage = 
 				
 				$.ajax({ 
@@ -125,28 +126,28 @@
 			<!--Conent Area with the main part-->
 			<div id="submitContentArea">
 				<div id="mainSubmitContent">		
-					<form id="frmAccount" method="POST">
+					<form id="frmAccount" action="PHP_Scripts/submit.php" method="POST">
 						<table id="formAccountTable">
 							<tr>
 								<td colspan="4"> <h3 id="accountSubmissionTitle"> Account Creation </h3> </td>
 							</tr>
 							<tr>
 								<td> User Name : </td> 
-								<td colspan="3"> <input id="username" type="text" name="username" /> </td>
+								<td colspan="3"> <input type="text" name="username" /> </td>
 							</tr>
 							<tr>
 								<td> Password : </td> 
-								<td colspan="3"> <input id="password" type="password" name="password" /> </td>
+								<td colspan="3"> <input type="password" name="password" /> </td>
 							</tr>
 							<tr>
 								<td> Re Type Password : </td>
-								<td colspan="3"> <input id="repassword" type="password" name="repassword" /> </td>
+								<td colspan="3"> <input type="password" name="repassword" /> </td>
 							</tr>
 							<tr colspan="2">
 								<td> Email : </td> 
-								<td> <input id="email" type="text" name="email" /> @</td> 
+								<td> <input type="text" name="email" /> @</td> 
 								<td> 
-									<select id="emailService" name="emailService">
+									<select name="emailService">
 										<option value="hotmail.com"> hotmail.com </option>
 										<option value="hotmail.gr"> hotmail.gr </option>
 										<option value="gmail.com"> gmail.com </option>
@@ -160,15 +161,15 @@
 							</tr>
 							<tr>
 								<td> Male : </td> 
-								<td> <input id="sex" type="radio" name="sex" value="male"/> </td> 
+								<td> <input type="radio" name="sex" value="male"/> </td> 
 								<td> Female : </td> 
-								<td> <input id="sex" type="radio" name="sex" value="female"/> </td>	
+								<td> <input type="radio" name="sex" value="female"/> </td>	
 							</tr>
 							<tr>
 								<td> Birth Date : </td> 
-								<td> <input id="date" type="number" name="date" value="Date" min="1" max="31" /> </td>
+								<td> <input type="number" name="date" value="Date" min="1" max="31" /> </td>
 								<td>
-									<select id="month" name="month">
+									<select name="month">
 										<option value="January"> January </option>
 										<option value="February"> February </option>
 										<option value="March"> March </option>
@@ -183,10 +184,10 @@
 										<option value="December"> December </option>
 									</select>
 								</td>
-								<td> <input id="year" type="number" name="year" /> </td>
+								<td> <input type="number" name="year" /> </td>
 							</tr>
 							<tr>
-								<td colspan="4"> <input id="ImageToUpload" type="file" name="ImageToUpload" /> </td>
+								<td colspan="4"> <input type="file" name="ImageToUpload" /> </td>
 							</tr>
 							<tr>
 								<td colspan="4">
@@ -198,11 +199,17 @@
 							</tr>
 							<tr>
 								<td colspan="4">
-									<input type="submit" value="Submit New Account" name="submit" onClick=validUser()  />
+									<input type="submit" value="Submit New Account" id="accountRegistration" />
 								</td>
 							</tr>
 						</table>
 					</form>	
+					
+					<div id="answerField">
+		
+					</div>
+					<script type="text/javascript" src="Javascript/jquery-1.8.2.min.js"> </script>
+					<script type="text/javascript" src="Javascript/accountRegistration.js"> </script>
 				</div>
 			</div>
 			
