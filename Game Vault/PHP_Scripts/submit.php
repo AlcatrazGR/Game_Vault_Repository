@@ -1,24 +1,50 @@
 <?php
-	//Array with all the names of the components that must be filled
-	//in the form
-	$requiredFields = array('username', 'password', 'repassword', 'email', 'emailService', 'sex', 'date', 'month', 'year');
+	require 'account.php';
 	
-	//sets an error flag and passes all the above array checking if
-	//any of the fields are empty.
-	$error = false;
-	foreach($requiredFields as $field) {
-		if (empty($_POST[$field])) {
-			$error = true;
+	$username = $_POST['Username'];
+	$password = $_POST['Password'];
+	$repassword = $_POST['RePassword'];
+	$email = $_POST['Email'];
+	$emailService = $_POST['EmailService'];
+	$sex = $_POST['Sex'];
+	$date = $_POST['Date'];
+	$month = $_POST['Month'];
+	$year = $_POST['Year'];
+	
+	//Initializing a account class object and sets its data members.
+	$accountObj = new account();
+	$accountObj->SetDataMembers($username, $password, $repassword, $email, $emailService, $sex, $date, $month, $year);	
+	
+	//Calls the function of account.php to check if there is any empty field
+	$result = $accountObj->EmptyFormFieldsCheck();
+	if($result == null){
+		
+		//Calls the function of account.php to check the Integrity of each form field.
+		$result = $accountObj->FormFieldIntegrity();
+		if($result == null){
+				
+				//Calls the function of the account.php that checks if the re type password
+				//field is equal to the password field.
+				$result = $accountObj->ReTypePasswordEqualsWithPasswordCheck();
+				if($result == null){
+				
+				}
+				else{
+					echo $result;
+				}
+		}
+		else{
+			echo $result;
 		}
 	}
-	
-	if($error){
-		echo "Error, empty field/s. Please check again the form data and fill all the required data.";
-	}
 	else{
-		$file = $_FILES['ImageToUpload'];
-		$file_name = $file['name'];
-		echo " ".$file_name;
+		echo $result;
+	}
+	
+	
+		
+		
+		
 		/*
 		if(!empty($_POST['ImageToUpload'])){
 			//Gets the data from the filled form.
@@ -44,10 +70,10 @@
 		else{
 			echo "No user image selected. Please submit an image for your profile.";
 		}
-		*/
+		
 	
 	}
-	
+	*/
 /*
 
 	else{

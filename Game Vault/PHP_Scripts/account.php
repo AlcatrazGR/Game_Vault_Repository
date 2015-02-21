@@ -7,6 +7,113 @@
 	//to do with user accounts.
 	class account{
 		
+		public $username;
+		public $password;
+		public $repassword;
+		public $email;
+		public $emailService;
+		public $sex;
+		public $bDate;
+		public $month;
+		public $year;
+		
+		//Function that sets the data for the data members.
+		public function SetDataMembers($usname, $pass, $rpass, $mail, $mailServ, $sex, $bDate, $month, $year){
+			$this->username = $usname;
+			$this->password = $pass;
+			$this->repassword = $rpass;
+			$this->email = $mail;
+			$this->emailService = $mailServ;
+			$this->sex = $sex;
+			$this->bDate = $bDate;
+			$this->month = $month;
+			$this->year = $year;
+		}
+		
+		//Function that checks if any of the form's fields is empty 
+		public function EmptyFormFieldsCheck(){
+			if($this->username == "")
+				return "Error occurred!, <b><u>User Name</b></u> field is empty.";
+			else if($this->password == "")
+				return "Error occurred!, <b><u>Password</b></u> field is empty.";
+			else if($this->repassword == "")
+				return "Error occurred!, <b><u>Re Type Password</b></u> field is empty.";
+			else if($this->email == "")
+				return "Error occurred!, <b><u>Email</b></u> field is empty.";
+			else if($this->sex == "")
+				return "Error occurred!, You didn't select your <b><u>Sex</b></u> type. ";
+			else if($this->bDate == "")
+				return "Error occurred!, <b><u>Date</b></u> field is empty.";
+			else if($this->year == "")
+				return "Error occurred!, <b><u>Year</b></u> field is empty.";
+			else
+				return null;
+		}
+		
+		//Function that checks the integrity of each field of the form.
+		public function FormFieldIntegrity(){
+			$forbiddenCharachters = array("!", "@", "#", "$", "%", "^", "&", "*", "(", ")", 
+				"-", "+", "=", "/", "{", "}", "[", "]", "|", "`", "~", ":");
+
+			foreach($forbiddenCharachters as $i){
+				if(strpos($this->username, $i) !== false){
+					return "Error occurred!, <b><u>User Name</b></u> field contains invalid characters.";
+					break;
+				}
+		
+				if(strpos($this->password, $i) !== false){
+					return "Error occurred!, <b><u>Password</b></u> field contains invalid characters.";
+					break;
+				}
+				
+				if(strpos($this->repassword, $i) !== false){
+					return "Error occurred!, <b><u>Re Type Password</b></u> field contains invalid characters.";
+					break;
+				}
+				
+				if(strpos($this->email, $i) !== false){
+					return "Error occurred!, <b><u>Email</b></u> field contains invalid characters.";
+					break;
+				}
+				
+				if(strpos($this->bDate, $i) !== false){
+					return "Error occurred!, <b><u>Date</b></u> field contains invalid characters.";
+					break;
+				}
+				
+				if(strpos($this->year, $i) !== false){
+					return "Error occurred!, <b><u>Year</b></u> field contains invalid characters.";
+					break;
+				}
+			}
+			return null;
+		}
+		
+		public function ReTypePasswordEqualsWithPasswordCheck(){
+			if($this->repassword == $this->password)
+				return null;
+			else	
+				return "Error occurred!, <b><u>Password</b></u> and <b><u>Re Type Password</b></u> fields mismatch!.";
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		//Gets all the accounts from the database and returns
 		//an array of arrays back to the caller.
 		public function getAccountFromDAO(){

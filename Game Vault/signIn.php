@@ -17,62 +17,61 @@
 		<!--Initializing the css file for the account submit form-->
 		<link rel="stylesheet" text="text/css" href="CSS_Files/accountSubmitFormStyle.css">
 		
-		<script>
-			function checkForm(form){
+		<script type="text/javascript" src="Javascript/jquery-1.8.2.min.js"> </script>
+		<script type="text/javascript" src="Javascript/accountRegistration.js"> </script>
+		<script language="JavaScript" type="text/javascript">
+			function ajaxPost() {
+				//Create the XML HTTP Request object
+				var hr = new XMLHttpRequest();
 				
-				if(this.username.value == ""){
-					return "The username field is empty. Please fill the above field!";
-					this.username.focus();
-				}
-				else if(this.password.value == ""){
-					return "The first name field is empty. Please fill the above field!";
-					//this.fname.focus();
-				}
-				else if(this.repassword.value == ""){
-					return "The last name field is empty. Please fill the above field!";
-					//this.lname.focus();
-				}
-				else if(this.email.value == ""){
-					return "The telephone number field is empty. Please fill the above field!";
-					//this.telephone.focus();
-				}
-				else if(this.sex.value == ""){
-					return "The semester field is empty. Please fill the above field!";
-					//this.semester.focus();
-				}
-				else if(this.date.value == ""){
-					return "The password field is empty. Please fill the above field!";
-					//this.password.focus();
-				}
-				else if(this.year.value == ""){
-					return "The repeat password field is empty. Please fill the above field!";
-					//this.repassword.focus();
-				}
-				else if(this.ImageToUpload.value == ""){
-					return "The email address field is empty. Please fill the above field!";
-					//this.emailAddr.focus();
-				}
-
-				return "";
-
-			}
-
-			function validUser(){   
-
-				var integMessage = 
+				//Create some variables that we need to send to our PHP file.
+				var url = "PHP_Scripts/submit.php";
+				var userName = document.getElementById("username").value;
+				var password = document.getElementById("password").value;
+				var rePassword = document.getElementById("repassword").value;
+				var email = document.getElementById("email").value;
+				var emailService = document.getElementById("emailService").value;
 				
-				$.ajax({ 
-					type: "POST",
-					url: 'PHP_Scripts/submit.php',
-					data: $('#frmAccount').serialize(),
+				var sex = "";
+				if(document.getElementById("male").checked)
+					sex = "male";
+				else
+					sex = "female";
 
-					success: function(data){
-						alert(data);
-						//$("#logindisplay").append(data);
+				var date = document.getElementById("date").value;
+				var month = document.getElementById("month").value;
+				var year = document.getElementById("year").value;
+				
+				
+				//A variable with value pairs of each field.
+				var variablesCombination = "Username="+userName+"&Password="+password+"&RePassword="+rePassword
+					+"&Email="+email+"&EmailService="+emailService+"&Sex="+sex+"&Date="+date
+					+"&Month="+month+"&Year="+year;
+				
+				//Sets the parameters for the connection, the last one initializes the connection
+				//to be asyncronized				
+				hr.open("POST", url, true);
+				
+				//Set content type header information for sending url encoded variables in the request
+				hr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+				
+				//Initializes a on ready state change event that occurs each time the state of the form
+				//changes.
+				hr.onreadystatechange = function () {
+					if(hr.readyState == 4 && hr.status == 200){
+						//Gets the data returned by the PHP script
+						var returnData = hr.responseText;
+						//Prints the above variables content to the answer div.
+						document.getElementById("answerField").innerHTML = returnData;
 					}
-				});
+				}
+				//Send the data to php script, and wait for response to update the status of the 
+				//answer field (then the above event occurs).
+				hr.send(variablesCombination);
+				//Sets a beginning message before printing the returned message of the php script
+				//can also be a animated gif image.
+				document.getElementById("answerField").innerHTML = "processing ...";
 			}
-			
 		</script>
 		
 	</head>
@@ -126,28 +125,28 @@
 			<!--Conent Area with the main part-->
 			<div id="submitContentArea">
 				<div id="mainSubmitContent">		
-					<form id="frmAccount" action="PHP_Scripts/submit.php" method="POST">
+					
 						<table id="formAccountTable">
 							<tr>
 								<td colspan="4"> <h3 id="accountSubmissionTitle"> Account Creation </h3> </td>
 							</tr>
 							<tr>
 								<td> User Name : </td> 
-								<td colspan="3"> <input type="text" name="username" /> </td>
+								<td colspan="3"> <input id="username" type="text" name="username" /> </td>
 							</tr>
 							<tr>
 								<td> Password : </td> 
-								<td colspan="3"> <input type="password" name="password" /> </td>
+								<td colspan="3"> <input id="password" type="password" name="password" /> </td>
 							</tr>
 							<tr>
 								<td> Re Type Password : </td>
-								<td colspan="3"> <input type="password" name="repassword" /> </td>
+								<td colspan="3"> <input id="repassword" type="password" name="repassword" /> </td>
 							</tr>
 							<tr colspan="2">
 								<td> Email : </td> 
-								<td> <input type="text" name="email" /> @</td> 
+								<td> <input id="email" type="text" name="email" /> @</td> 
 								<td> 
-									<select name="emailService">
+									<select id="emailService" name="emailService">
 										<option value="hotmail.com"> hotmail.com </option>
 										<option value="hotmail.gr"> hotmail.gr </option>
 										<option value="gmail.com"> gmail.com </option>
@@ -161,15 +160,15 @@
 							</tr>
 							<tr>
 								<td> Male : </td> 
-								<td> <input type="radio" name="sex" value="male"/> </td> 
+								<td> <input id="male" type="radio" name="sex"/> </td> 
 								<td> Female : </td> 
-								<td> <input type="radio" name="sex" value="female"/> </td>	
+								<td> <input id="female" type="radio" name="sex"/> </td>	
 							</tr>
 							<tr>
 								<td> Birth Date : </td> 
-								<td> <input type="number" name="date" value="Date" min="1" max="31" /> </td>
+								<td> <input id="date" type="number" name="date" value="Date" min="1" max="31" /> </td>
 								<td>
-									<select name="month">
+									<select id="month" name="month">
 										<option value="January"> January </option>
 										<option value="February"> February </option>
 										<option value="March"> March </option>
@@ -184,10 +183,10 @@
 										<option value="December"> December </option>
 									</select>
 								</td>
-								<td> <input type="number" name="year" /> </td>
+								<td> <input id="year" type="number" name="year" /> </td>
 							</tr>
 							<tr>
-								<td colspan="4"> <input type="file" name="ImageToUpload" /> </td>
+								<td colspan="4"> <input id="ImageToUpload" type="file" name="ImageToUpload" /> </td>
 							</tr>
 							<tr>
 								<td colspan="4">
@@ -199,17 +198,18 @@
 							</tr>
 							<tr>
 								<td colspan="4">
-									<input type="submit" value="Submit New Account" id="accountRegistration" />
+									<!-- <input name="submit" type="submit" value="Submit New Account" id="accountRegistration" /> -->
+									<!-- <button name="submit" type="submit" value="Submit Data" onClick="javascript:ajaxPost();"> -->
+									<input name="submit" type="submit" value="Submit New Account" onClick="javascript:ajaxPost();"/>
 								</td>
 							</tr>
 						</table>
-					</form>	
 					
-					<div id="answerField">
-		
-					</div>
-					<script type="text/javascript" src="Javascript/jquery-1.8.2.min.js"> </script>
-					<script type="text/javascript" src="Javascript/accountRegistration.js"> </script>
+					
+					
+					
+					<div id="answerField"> </div>
+					
 				</div>
 			</div>
 			
