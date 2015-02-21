@@ -27,7 +27,16 @@
 				//field is equal to the password field.
 				$result = $accountObj->ReTypePasswordEqualsWithPasswordCheck();
 				if($result == null){
-				
+					
+					//Calls the function of the account.php that checks if the account 
+					//already exists in data base.
+					$result = $accountObj->AccountExistInDataBase();
+					if($result == null){
+						
+					}
+					else{
+						echo $result;
+					}
 				}
 				else{
 					echo $result;

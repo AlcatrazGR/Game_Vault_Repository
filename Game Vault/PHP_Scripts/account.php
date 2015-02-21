@@ -53,7 +53,7 @@
 		//Function that checks the integrity of each field of the form.
 		public function FormFieldIntegrity(){
 			$forbiddenCharachters = array("!", "@", "#", "$", "%", "^", "&", "*", "(", ")", 
-				"-", "+", "=", "/", "{", "}", "[", "]", "|", "`", "~", ":");
+				"-", "+", "=", "/", "{", "}", "[", "]", "|", "`", "~", ":", " ");
 
 			foreach($forbiddenCharachters as $i){
 				if(strpos($this->username, $i) !== false){
@@ -89,11 +89,58 @@
 			return null;
 		}
 		
+		//Function that checks if the re type password and the password fields of the form
+		//are equal.
 		public function ReTypePasswordEqualsWithPasswordCheck(){
 			if($this->repassword == $this->password)
 				return null;
 			else	
 				return "Error occurred!, <b><u>Password</b></u> and <b><u>Re Type Password</b></u> fields mismatch!.";
+		}
+		
+		//Function that merges the email data and the birth date data parts together 
+		//and return an array of them.
+		public function MergeDataFields(){
+			$emailData = $this->email."@".$this->emailService;
+			
+			$time = $this->year."-".$this->month."-".$this->bDate;
+			$date = strtotime($time);
+			$bdate = date('Y/m/d', $date);
+			
+			$arrayOfData = array($emailData, $bdate);
+			return $arrayOfData;
+		}
+		
+		//Function that checks if the newly submited account already exists 
+		//in our database.
+		public function AccountExistInDataBase(){
+			$arrayOfData = $this->MergeDataFields();
+			
+			$query = "SELECT * FROM accounts WHERE ((USERNAME='".$this->username."') OR 
+				(PASSWORD='".$this->password."'));";
+			
+			$results = mysql_query($query);
+			//Returns the number of rows from the above sql query
+			$rowsNum = mysql_num_rows($results);
+			
+			if($rowsNum != 0)
+				return "Error occurred!, the <b><u>User Name</b></u> or <b><u>Password</b></u> already exist!";
+			else
+				return null;
+		}
+		
+		//Function that submit the data of the form to the database.
+		public function SubmitNewAccountToDatabase(){
+			$arrayOfData = $this->MergeDataFields();
+			$accountType = "user";
+			
+			/*
+			$query = "INSERT INTO accounts (ACCOUNT_TYPE, USERNAME, PASSWORD, EMAIL, SEX, BIRTH_DATE, USER_PHOTO)
+				VALUES ('".$accountType."', '".$this->username."', '".$this->password."', '".$arrayOfData[0]."',
+				'".$this->sex."', '".$arrayOfData[1]."', '".VLEPOUME."');";
+			mysql_query($query);
+			*/
+			
 		}
 		
 		

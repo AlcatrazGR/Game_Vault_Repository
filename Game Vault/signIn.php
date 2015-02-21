@@ -61,8 +61,19 @@
 					if(hr.readyState == 4 && hr.status == 200){
 						//Gets the data returned by the PHP script
 						var returnData = hr.responseText;
+						
+					
+						
+						var photo = document.getElementById("ImageToUpload");
+						var file = photo.files[0];
+						returnData = "File Name : " + file.fileName;
+					
+						
+						
+						
 						//Prints the above variables content to the answer div.
 						document.getElementById("answerField").innerHTML = returnData;
+						
 					}
 				}
 				//Send the data to php script, and wait for response to update the status of the 
