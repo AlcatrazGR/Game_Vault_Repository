@@ -32,6 +32,9 @@
 					//already exists in data base.
 					$result = $accountObj->AccountExistInDataBase();
 					if($result == null){
+							
+						//$_FILES['File']['size']
+					
 						
 					}
 					else{

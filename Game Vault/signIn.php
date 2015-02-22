@@ -31,7 +31,7 @@
 				var rePassword = document.getElementById("repassword").value;
 				var email = document.getElementById("email").value;
 				var emailService = document.getElementById("emailService").value;
-				
+
 				var sex = "";
 				if(document.getElementById("male").checked)
 					sex = "male";
@@ -42,11 +42,13 @@
 				var month = document.getElementById("month").value;
 				var year = document.getElementById("year").value;
 				
+				var userImageReference = document.getElementById("ImageToUpload");
+				var file = userImageReference[0];
 				
 				//A variable with value pairs of each field.
 				var variablesCombination = "Username="+userName+"&Password="+password+"&RePassword="+rePassword
 					+"&Email="+email+"&EmailService="+emailService+"&Sex="+sex+"&Date="+date
-					+"&Month="+month+"&Year="+year;
+					+"&Month="+month+"&Year="+year+"&File="+userImageReference;
 				
 				//Sets the parameters for the connection, the last one initializes the connection
 				//to be asyncronized				
@@ -62,13 +64,25 @@
 						//Gets the data returned by the PHP script
 						var returnData = hr.responseText;
 						
-					
 						
-						var photo = document.getElementById("ImageToUpload");
-						var file = photo.files[0];
-						returnData = "File Name : " + file.fileName;
-					
 						
+						
+						if((userImageReference.files.length === 0) && (!returnData)){
+							returnData = "Successfull account submission!";
+						
+							/*
+							var userImageReference = document.getElementById("ImageToUpload");
+							var file = userImageReference.files;
+							
+							
+							var fileName = file[0].name;
+							if(file[0].name == ""){
+								document.getElementById("answerField").style.color = "lightgreen";
+								returnData = "Successfull account submission!";
+							}
+							*/
+							
+						}
 						
 						
 						//Prints the above variables content to the answer div.
