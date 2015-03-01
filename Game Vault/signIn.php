@@ -17,10 +17,16 @@
 		<!--Initializing the css file for the account submit form-->
 		<link rel="stylesheet" text="text/css" href="CSS_Files/accountSubmitFormStyle.css">
 		
-		<script type="text/javascript" src="Javascript/jquery-1.8.2.min.js"> </script>
-		<script type="text/javascript" src="Javascript/accountRegistration.js"> </script>
-		<script language="JavaScript" type="text/javascript">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+		<script src="http://malsup.github.com/jquery.form.js"></script>
+		
+		
+		<!-- <script type="text/javascript" src="Javascript/jquery-1.8.2.min.js"> </script> -->
+		<!-- <script type="text/javascript" src="Javascript/accountRegistration.js"> </script> -->
+		<script language="JavaScript" type="text/javascript"> 
+			/*
 			function ajaxPost() {
+				
 				//Create the XML HTTP Request object
 				var hr = new XMLHttpRequest();
 				
@@ -69,7 +75,7 @@
 						
 						if((userImageReference.files.length === 0) && (!returnData)){
 							returnData = "Successfull account submission!";
-						
+			*/
 							/*
 							var userImageReference = document.getElementById("ImageToUpload");
 							var file = userImageReference.files;
@@ -82,7 +88,7 @@
 							}
 							*/
 							
-						}
+				/*		}
 						
 						
 						//Prints the above variables content to the answer div.
@@ -95,8 +101,9 @@
 				hr.send(variablesCombination);
 				//Sets a beginning message before printing the returned message of the php script
 				//can also be a animated gif image.
-				document.getElementById("answerField").innerHTML = "processing ...";
-			}
+				document.getElementById("answerField").innerHTML = "processing ..."; 
+			} 
+			*/
 		</script>
 		
 	</head>
@@ -150,7 +157,7 @@
 			<!--Conent Area with the main part-->
 			<div id="submitContentArea">
 				<div id="mainSubmitContent">		
-					
+					<form id="accountForm" action="PHP_Scripts/submit.php" method="post" enctype="multipart/form-data">
 						<table id="formAccountTable">
 							<tr>
 								<td colspan="4"> <h3 id="accountSubmissionTitle"> Account Creation </h3> </td>
@@ -185,7 +192,7 @@
 							</tr>
 							<tr>
 								<td> Male : </td> 
-								<td> <input id="male" type="radio" name="sex"/> </td> 
+								<td> <input id="male" type="radio" name="sex" checked /> </td> 
 								<td> Female : </td> 
 								<td> <input id="female" type="radio" name="sex"/> </td>	
 							</tr>
@@ -225,16 +232,52 @@
 								<td colspan="4">
 									<!-- <input name="submit" type="submit" value="Submit New Account" id="accountRegistration" /> -->
 									<!-- <button name="submit" type="submit" value="Submit Data" onClick="javascript:ajaxPost();"> -->
+									<!-- <input name="submit" type="submit" value="Submit New Account" onClick="javascript:ajaxPost();"/> -->
 									<input name="submit" type="submit" value="Submit New Account" onClick="javascript:ajaxPost();"/>
 								</td>
 							</tr>
 						</table>
+					</form>
+				</div>
+ 
+				<div id="answerField"> </div>
+					<script>
+						$(document).ready(function(){
+							var options = { 
+								beforeSend: function(){
+									//$("#progress").show();
+									
+									//clear everything
+									//$("#bar").width('0%');
+									$("#answerField").html("");
+									//$("#percent").html("0%");
+								},
+								
+								uploadProgress: function(event, position, total, percentComplete) {
+									//$("#bar").width(percentComplete+'%');
+									//$("#percent").html(percentComplete+'%');
+
+								},
 					
-					
-					
-					
-					<div id="answerField"> </div>
-					
+								success: function(){
+									//$("#bar").width('100%');
+									//$("#percent").html('100%');
+ 
+								},
+    
+								complete: function(response){
+									if(response.responseText == "OK"){
+										$("#answerField").html("<font color='green'>"+response.responseText+"</font>");
+									}
+									else {
+										$("#answerField").html("<font color='red'>"+response.responseText+"</font>");
+									}
+								},
+							}; 
+							$("#accountForm").ajaxForm(options);
+						});
+						
+					</script>
 				</div>
 			</div>
 			

@@ -129,6 +129,53 @@
 				return null;
 		}
 		
+		//Method that works out the extension of the file to be uploaded.
+		public function fileExtensionCheck($fileRef){
+			
+			//permitted file extensions.
+			$allowedExtensions = array("jpg","jpeg","gif","bmp","JPG","JPEG","GIF","BMP");
+			$file_name = $fileRef['name'];
+			
+			//Works out the file extension
+			$file_ext = explode('.', $file_name);
+			$file_ext = strtolower(end($file_ext));
+			
+			for($i=0; $i<sizeof($allowedExtensions); $i++){
+				if($file_ext == $allowedExtensions[$i])
+					return null;
+			}
+			
+			return "Error occurred!, forbidden file <b><u> extension! </b></u>";
+		}
+		
+		//Method that checks the size of the file to be uploaded
+		public function FileSizeCheck($fileRef){
+			$file_size = $fileRef['size'];
+			
+			if($file_size <= 697152)
+				return null;
+			else
+				return "Error occurred!, The size of the file you want to upload exceeds the limit of 600KB!";
+		}
+		
+		//Checks if the directory for the users images exists, if not it creates it.
+		//Do the same with the cache folder.
+		public function UserImageFolderExists(){
+			if(!is_dir("User/Images/")){
+				mkdir("User/Images/", 0777, true);
+			}
+			
+			if(!is_dir("User/Images/Cache")){
+				mkdir("User/Images/Cache", 0777, true);
+			}
+		}
+		
+		//Method that checks whether the image the user choose to upload exists
+		//in database.
+		public function UserImageExistsInDatabase(){
+			
+		}
+		
 		//Function that submit the data of the form to the database.
 		public function SubmitNewAccountToDatabase(){
 			$arrayOfData = $this->MergeDataFields();

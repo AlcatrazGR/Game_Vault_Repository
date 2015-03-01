@@ -1,49 +1,78 @@
 <?php
 	require 'account.php';
+
+	//Gets the data from the html form.
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	$repassword = $_POST['repassword'];
 	
-	$username = $_POST['Username'];
-	$password = $_POST['Password'];
-	$repassword = $_POST['RePassword'];
-	$email = $_POST['Email'];
-	$emailService = $_POST['EmailService'];
-	$sex = $_POST['Sex'];
-	$date = $_POST['Date'];
-	$month = $_POST['Month'];
-	$year = $_POST['Year'];
+	$emailDomain = $_POST['email'];
+	$emailService = $_POST['emailService'];
+	
+	$sex = $_POST['sex'];
+	
+	$date = $_POST['date'];
+	$month = $_POST['month'];
+	$year = $_POST['year'];
 	
 	//Initializing a account class object and sets its data members.
 	$accountObj = new account();
-	$accountObj->SetDataMembers($username, $password, $repassword, $email, $emailService, $sex, $date, $month, $year);	
+	$accountObj->SetDataMembers($username, $password, $repassword, $emailDomain, $emailService, $sex, $date, $month, $year);	
 	
 	//Calls the function of account.php to check if there is any empty field
 	$result = $accountObj->EmptyFormFieldsCheck();
 	if($result == null){
-		
 		//Calls the function of account.php to check the Integrity of each form field.
 		$result = $accountObj->FormFieldIntegrity();
 		if($result == null){
 				
-				//Calls the function of the account.php that checks if the re type password
-				//field is equal to the password field.
-				$result = $accountObj->ReTypePasswordEqualsWithPasswordCheck();
-				if($result == null){
+			//Calls the function of the account.php that checks if the re type password
+			//field is equal to the password field.
+			$result = $accountObj->ReTypePasswordEqualsWithPasswordCheck();
+			if($result == null){
 					
-					//Calls the function of the account.php that checks if the account 
-					//already exists in data base.
-					$result = $accountObj->AccountExistInDataBase();
-					if($result == null){
-							
-						//$_FILES['File']['size']
-					
+				//Calls the function of the account.php that checks if the account 
+				//already exists in data base.
+				$result = $accountObj->AccountExistInDataBase();
+				if($result == null){		
+					if(isset($_FILES['ImageToUpload'])){
 						
+						$file = $_FILES['ImageToUpload'];
+						
+						//Checks the extension of the file to be uploaded
+						$result = $accountObj->fileExtensionCheck($file);
+						if($result == null){
+							
+							//Checks the size of the file to be uploaded
+							$result = $accountObj->FileSizeCheck($file);
+							if($result == null){
+								
+								//Checks whether the user image folder and the cache
+								//image folder exists. If not it creates them.
+								$accountObj->UserImageFolderExists();	
+								
+								
+							
+							}
+							else{
+								echo $result;
+							}
+						}
+						else{
+							echo $result;
+						}
 					}
 					else{
-						echo $result;
+						echo "You didn't select any image for you profile!";
 					}
 				}
 				else{
 					echo $result;
 				}
+			}
+			else{
+				echo $result;
+			}
 		}
 		else{
 			echo $result;
@@ -54,9 +83,31 @@
 	}
 	
 	
-		
-		
-		
+	/*
+	$output_dir = "User/Images/";
+ 
+	if(isset($_FILES["ImageToUpload"]))
+	{
+		//Filter the file types , if you want.
+		if ($_FILES["ImageToUpload"]["error"] > 0)
+		{
+			echo "Error: " . $_FILES["file"]["error"] . "<br>";
+		}
+		else
+		{
+			//move the uploaded file to uploads folder;
+			move_uploaded_file($_FILES["ImageToUpload"]["tmp_name"],$output_dir. $_FILES["ImageToUpload"]["name"]);
+ 
+		echo "Uploaded File :".$_FILES["ImageToUpload"]["name"];
+		}
+	}
+
+	*/
+	
+
+	
+	
+	
 		/*
 		if(!empty($_POST['ImageToUpload'])){
 			//Gets the data from the filled form.
