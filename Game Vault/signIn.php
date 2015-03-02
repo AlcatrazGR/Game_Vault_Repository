@@ -192,9 +192,9 @@
 							</tr>
 							<tr>
 								<td> Male : </td> 
-								<td> <input id="male" type="radio" name="sex" checked /> </td> 
+								<td> <input id="male" type="radio" name="sex" value="male" checked /> </td> 
 								<td> Female : </td> 
-								<td> <input id="female" type="radio" name="sex"/> </td>	
+								<td> <input id="female" type="radio" value="female" name="sex"/> </td>	
 							</tr>
 							<tr>
 								<td> Birth Date : </td> 
@@ -266,8 +266,8 @@
 								},
     
 								complete: function(response){
-									if(response.responseText == "OK"){
-										$("#answerField").html("<font color='green'>"+response.responseText+"</font>");
+									if(response.responseText == "! Successful Account Submission."){
+										$("#answerField").html("<font color='lightgreen'>"+response.responseText+"</font>");
 									}
 									else {
 										$("#answerField").html("<font color='red'>"+response.responseText+"</font>");

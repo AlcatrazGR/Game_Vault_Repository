@@ -51,8 +51,15 @@
 								//image folder exists. If not it creates them.
 								$accountObj->UserImageFolderExists();	
 								
+								//Calls a method that will check if the name of the user image
+								//already exist in database. If it does then it uploads it to a
+								//temporary folder and renames it.
+								$result = $accountObj->UserImageExistsInDatabase($file);
 								
-							
+								//Submitting data to data base
+								$accountObj->SubmitNewAccountToDatabase();
+								echo "! Successful Account Submission.";
+								
 							}
 							else{
 								echo $result;
