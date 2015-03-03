@@ -47,6 +47,11 @@
 	color: darkorange;
 }
 
+#loginTable{
+	color: darkorange;
+	border-spacing: 9px;
+}
+
 #rightColPc{
 	border-top: 2px solid;
 	border-top-color: darkorange;

@@ -256,13 +256,11 @@
 								uploadProgress: function(event, position, total, percentComplete) {
 									//$("#bar").width(percentComplete+'%');
 									//$("#percent").html(percentComplete+'%');
-
 								},
 					
 								success: function(){
 									//$("#bar").width('100%');
 									//$("#percent").html('100%');
- 
 								},
     
 								complete: function(response){

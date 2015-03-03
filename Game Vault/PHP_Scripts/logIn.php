@@ -1,6 +1,50 @@
 <?php
 	//Script that checks if the account and password given by
 	//the user exists on database.
+	require("UserConnectivity.php");
+
+	
+	//if the fields have been filled and the button submit hash
+	//been pressed.
+	if(isset($_POST['submit'])){
+		$username = $_POST['username'];
+		$password = $_POST['password'];
+		
+		$connectivityObj = new UserConnectivity();
+		
+		//If the remember me checks box is set then set the datamember
+		//with remember to 'yes' else 'no'
+		if(isset($_POST['remember']))
+			$connectivityObj->SetDataMember($username, $password, "", "yes");
+		else
+			$connectivityObj->SetDataMember($username, $password, "", "no");
+			
+		//Checks if the fields of the forms are empty
+		$result = $connectivityObj->LogInFieldsEmptyCheck();
+		if($result == null){
+			
+			//Checks if the account given exists in database.
+			$result = $connectivityObj->AccountExistsInDataBase();
+			if($result == null){
+				$connectivityObj->SetCookieMaintenance();
+				$result = $connectivityObj->SetCookieMessageToGreetingField();	
+				echo $result;
+			}
+			else{
+				echo $result;
+			}
+		}
+		else{
+			echo $result;
+		}
+	}
+	else{
+		echo "Error occurred!, Need to submit form first!";
+	}
+	
+	/*
+	//Script that checks if the account and password given by
+	//the user exists on database.
 	require("account.php");
 	require("UserConnectivity.php");
 
@@ -12,7 +56,7 @@
 		 
 		$accountObj = new account();
 		//gets an M x D table with all the accounts 
-		$results = $accountObj->getAccountFromDAO();
+		$results = $accountObj->GetAccountFromDAO();
 		$checkState = false;
 		
 		//with a loop checks if the account exists.
@@ -50,5 +94,5 @@
 		echo "Error";
 	}
 
-
+	*/
 ?>

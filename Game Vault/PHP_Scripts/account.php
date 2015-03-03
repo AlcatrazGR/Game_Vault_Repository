@@ -249,4 +249,13 @@
 			
 			mysql_query($query);	
 		}	
+		
+		//Method that returns all the account from the database
+		public function GetAccountFromDAO(){
+			$query = "SELECT * FROM accounts";
+			$results = mysql_query($query);
+			
+			return $results;
+		}
+	}		
 ?>

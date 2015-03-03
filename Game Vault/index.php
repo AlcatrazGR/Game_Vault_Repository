@@ -19,7 +19,7 @@
 ?>
 <html>
 	<head>
-		<title> Game Vault </title>
+		<title> Game Vault - Home Page </title>
 		<meta charset='UTF-8'>
 		
 		<!--Meta Descriptions-->
@@ -36,6 +36,9 @@
 		<!--Initializing the css file for the favorite column of the index-->
 		<link rel="stylesheet" type="text/css" href="CSS_Files/favorites.css"> </link>
 
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+		<script src="http://malsup.github.com/jquery.form.js"></script>
+		
 		<script type="text/javascript">
 			function invisibleAdminMenuItem(){
 				var myCookie = getCookie("admin");
@@ -216,11 +219,16 @@
 					<div id="greetings">
 						
 						<?php 
+							
+						
+							
+							/*
 							include("PHP_Scripts/UserConnectivity.php");
 							
 							$usercon = new UserConnectivity(); 
 							$usname = $usercon->getAccountName();
 							echo $usname;
+							*/
 						?>
 						
 						<a id="logOutLink" href="index.php?status=logout"> Log Out </a>
@@ -253,18 +261,53 @@
 				<div id="right_col">
 					<div id="rightColWrapper">
 					<div id="login">
-						<form id="loginForm" action="PHP_Scripts/logIn.php" method="POST" enctype="multipart/form-data">
-							<b>Unlock the Vault</b> <br />
-							<br>
-							Username:&nbsp;<input type="text" name="username"><br /><br />
-							Password:&nbsp;&nbsp;<input type="password" name="password"><br /><br />
-							<input type="checkbox" name="remember" /> &nbsp; Keep me logged in<br /><br />
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-							<input type="submit" value="Log In" name="submit" />
+						<form id="loginForm" action="PHP_Scripts/logIn.php" method="post" enctype="multipart/form-data">
+							<table id="loginTable">
+								<tr>
+									<td colspan="2"> <b>Unlock the Vault</b> </td>
+								</tr>
+								<tr>
+						   			<td> Username: </td>
+									<td> <input type="text" name="username"> </td>
+								</tr>
+								<tr>
+									<td> Password: </td>
+									<td> <input type="password" name="password"> </td>
+								</tr>
+								<tr>
+									<td> <input type="checkbox" name="remember" value="checked" /> </td>
+									<td> Keep me logged in </td>
+								</tr>
+								<tr>
+									<td colspan="2"> <input type="submit" value="Log In" name="submit" /> </td>
+								</tr>
+							</table>
 						</form>
+						
+						<script>
+							$(document).ready(function(){
+								var options = { 
+									beforeSend: function(){
+										$("#greetings").html("");
+									},
+								
+									uploadProgress: function(event, position, total, percentComplete) {
+									},
+					
+									success: function(){
+									},
+    
+									complete: function(response){
+										
+										if(response.responseText.indexOf('Hello') > -1)
+											$("#greetings").html(response.responseText);
+										else
+											alert(response.responseText);
+									},
+								}; 
+							$("#loginForm").ajaxForm(options);
+							});
+						</script>
 					</div>
 					
 					<div id="favorites">
